@@ -74,15 +74,15 @@ span{
     padding: 1rem 2.8rem;
     background: var(--main-color);
     border-radius: 4rem;
-    box-shadow: 0 0 1rem var(--main-color);
+    box-shadow: none;
+    color: rgba(255, 255, 255);
     font-size: 1.6rem;
-    color: rgba(255, 255, 255, 0.5);
     letter-spacing: .1rem;
     font-weight: 600;
     transition: .5s ease;
 }
 
 .btn:hover{
-    box-shadow: none;
-    color: rgba(255, 255, 255);
+    color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 1rem var(--main-color);
 }
