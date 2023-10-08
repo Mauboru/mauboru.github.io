@@ -50,6 +50,7 @@ body{
     color: var(--text-color);
     font-weight: 600;
     cursor: default;
+    text-decoration: none;
 }
 
 .navbar a{
