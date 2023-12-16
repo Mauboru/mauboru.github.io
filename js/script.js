@@ -54,7 +54,7 @@ const typed = new Typed('.multiple-text', {
     strings: [
         'Desenvolvedor Back-End', 
         'Violinista', 
-        'Rabeolista',
+        'Rabequista',
         'Desenvolvedor de Jogos',
         'Desenvolvedor Python'
     ],

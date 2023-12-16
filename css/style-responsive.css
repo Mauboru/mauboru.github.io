@@ -43,6 +43,7 @@
 @media (max-width: 768px){
     #menu-icon{
         display: block;
+        cursor: pointer;
     }
 
     .navbar{
@@ -72,7 +73,7 @@
     }
 
     .home-content h3{
-        font-size: 2.6rem;
+        font-size: 2.3rem;
     }
 
     .home-content h1{
@@ -110,6 +111,10 @@
     .portfolio-container{
         grid-template-columns: 1fr;
     }
+
+    .home-content h3{
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 450px){
@@ -119,6 +124,10 @@
 
     .contact form .input-box input{
         width: 100%;
+    }
+
+    .home-content h3{
+        font-size: 1.3rem;
     }
 }
 
