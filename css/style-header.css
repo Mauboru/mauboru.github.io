@@ -13,7 +13,7 @@
 
 :root{
     --bg-color: rgb(31, 36, 45);
-    --second-bg-color: #323946;
+    --second-bg-color: rgb(50, 57, 70);
     --text-color: rgb(255, 255, 255);
     --main-color: rgb(0, 255, 115);
 }
