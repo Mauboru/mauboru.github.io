@@ -54,7 +54,8 @@ body{
 }
 
 .navbar{
-    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .navbar a{
@@ -76,10 +77,8 @@ body{
 }
 
 .language {
-    position: relative;
     width: 120px;
     margin-left: 40px;
-    font-weight: bold;
 }
 
 .language-selected {
@@ -91,13 +90,11 @@ body{
 
 .language-selected:before {
     content: '';
-    display: inline-block;
     width: 30px;
     height: 30px;
     background-image: url(https://flagicons.lipis.dev/flags/4x3/br.svg);
     background-size: contain;
     background-repeat: no-repeat;
-    margin-right: 10px;
 }
 
 .language-selected.change-br:before {
@@ -111,10 +108,8 @@ body{
 .language ul {
     position: absolute;
     width: 140px;
-    background-color: #fff;
-    border: 1px solid #f8f8f8;
+    background-color: #ffffff49;
     padding-top: 10px;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
     display: none;
 }
 
@@ -122,14 +117,8 @@ body{
     list-style: none;
 }
 
-.language ul li a {
-    display: block;
-    color: #252525;
-    padding: 5px 10px;
-}
-
 .language ul li:hover {
-    background-color: #f8f8f8;
+    background-color: #1b1616;
 }
 
 .language ul li a:before {
@@ -140,7 +129,6 @@ body{
     background-size: contain;
     background-repeat: no-repeat;
     vertical-align: middle;
-    margin-right: 10px;
 }
 
 a.br:before {

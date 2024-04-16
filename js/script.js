@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function() {
         navbarLinks[2].textContent = "Serviços";
         navbarLinks[3].textContent = "Portfólio";
         navbarLinks[4].textContent = "Contato";
-        document.querySelector(".language-selected").textContent = "pt-BR";
         document.querySelector(".language-selected").classList.remove("change-en");
         document.querySelector(".language-selected").classList.add("change-br");
 
@@ -77,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function() {
         navbarLinks[2].textContent = "Services";
         navbarLinks[3].textContent = "Portfolio";
         navbarLinks[4].textContent = "Contact";
-        document.querySelector(".language-selected").textContent = "en-US";
         document.querySelector(".language-selected").classList.remove("change-br");
         document.querySelector(".language-selected").classList.add("change-en");
 
