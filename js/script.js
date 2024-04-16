@@ -1,15 +1,12 @@
-// =================== Icone fixo navbar ===================
 let menuIcon = document.querySelector('#menu-icon')
 let navBar = document.querySelector('.navbar')
+let sections = document.querySelectorAll('section')
+let navLinks = document.querySelectorAll('header nav a')
 
 menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x')
     navBar.classList.toggle('active')
 }
-
-// =================== Sections Ativas pelo Link ===================
-let sections = document.querySelectorAll('section')
-let navLinks = document.querySelectorAll('header nav a')
 
 window.onscroll = () => {
     sections.forEach(sec => {
@@ -25,18 +22,11 @@ window.onscroll = () => {
             })
         }
     })
-
-    // =================== NavBar grudada ===================
-    let header = document.querySelector('header')
     
-    header.classList.toggle('sticky', window.scrollY > 100)
-    
-    // =================== Removendo icone fixo navbar ===================
     menuIcon.classList.remove('bx-x')
     navBar.classList.remove('active')
 }
 
-// =================== scroll reveal ===================
 ScrollReveal({
     // reset: true,
     distance: '80px',
@@ -49,14 +39,13 @@ ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact 
 ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' })
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' })
 
-// =================== typed js ===================
 const typed = new Typed('.multiple-text', {
     strings: [
-        'Desenvolvedor Back-End', 
-        'Violinista', 
+        'Back-End developer', 
+        'Violinist', 
         'Rabequista',
-        'Desenvolvedor de Jogos',
-        'Desenvolvedor Python'
+        'Games developer',
+        'Python developer'
     ],
     typeSpeed: 100,
     backSpeed: 100,
