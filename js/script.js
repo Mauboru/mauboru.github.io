@@ -56,6 +56,12 @@ ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' })
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelector(".br").addEventListener("click", function() {
         var navbarLinks = document.querySelectorAll(".navbar a");
+        var btns = document.querySelectorAll(".btn");
+
+        btns.forEach(function(btn) {
+            btn.textContent = "Leia Mais";
+        });
+
         navbarLinks[0].textContent = "Home";
         navbarLinks[1].textContent = "Sobre";
         navbarLinks[2].textContent = "Serviços";
@@ -73,10 +79,28 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".about .p1").textContent = "Desde pequeno tive uma paixão muito grande pela música e tecnologia!";
         document.querySelector(".about .p2").textContent = "Com o passar do tempo fui me especializando nas duas áreas, comecei estudando violão, depois outros instrumentos e então fui para o violino, onde depositei todo meu esforço e dedicação deixando assim de lado os outros instrumentos com o intuito de me profissionalizar."
         document.querySelector(".about .p3").textContent = "Me dediquei também a programação, começando com projetos de jogos 'Drag and Drop' e então evoluindo para então outras engines e só então as linguagens de programação.";
+        
+        document.querySelector(".services .heading").innerHTML = "Meus <span>Serviços</span>";
+        document.querySelector(".services .game h3").textContent = "Desenvolvimento de Jogos";
+        document.querySelector(".services .game p").textContent = "Criação de jogos 2D, traga sua idéia e deixe a ganhar vida!";
+        document.querySelector(".services .code h3").textContent = "Desenvolvimento de Sistemas";
+        document.querySelector(".services .code p").textContent = "Criação de sistemas com banco de dados em Java e Python!";
+        document.querySelector(".services .data h3").textContent = "Desenvolvimento WEB";
+        document.querySelector(".services .data p").textContent = "Criação de sites com conexão a banco de dados!";
+        document.querySelector(".services .power h3").textContent = "Desenvolvimento de Power BI";
+        document.querySelector(".services .power p").textContent = "Criação de dashboards com banco de dados!";
+        document.querySelector(".services .spreadsheet h3").textContent = "Desenvolvimento de Planilhas";
+        document.querySelector(".services .spreadsheet p").textContent = "Criação de planilhas (online/desktop) com automação.";
     });
 
     document.querySelector(".en").addEventListener("click", function() {
         var navbarLinks = document.querySelectorAll(".navbar a");
+        var btns = document.querySelectorAll(".btn");
+
+        btns.forEach(function(btn) {
+            btn.textContent = "Read More";
+        });
+
         navbarLinks[0].textContent = "Home";
         navbarLinks[1].textContent = "About";
         navbarLinks[2].textContent = "Services";
@@ -94,5 +118,17 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".about .p1").textContent = "Since I was little, I've had a huge passion for music and technology!";
         document.querySelector(".about .p2").textContent = "As time went by, I specialized in both areas, I started studying guitar, then other instruments and then I switched to violin, where I put all my effort and dedication aside, leaving other instruments aside with the aim of becoming a professional."
         document.querySelector(".about .p3").textContent = "I also dedicated myself to programming, starting with 'Drag and Drop' game projects and then evolving to other engines and only then programming languages.";
+   
+        document.querySelector(".services .heading").innerHTML = "My <span>Services</span>";
+        document.querySelector(".services .game h3").textContent = "Games Development";
+        document.querySelector(".services .game p").textContent = "Creation of 2D games, bring your idea and let it come to life!";
+        document.querySelector(".services .code h3").textContent = "Systems Development";
+        document.querySelector(".services .code p").textContent = "Creation of systems with databases in Java and Python!";
+        document.querySelector(".services .data h3").textContent = "WEB Development";
+        document.querySelector(".services .data p").textContent = "Creation of websites with database connection!";
+        document.querySelector(".services .power h3").textContent = "Power BI Development";
+        document.querySelector(".services .power p").textContent = "Creation of dashboards with database!";
+        document.querySelector(".services .spreadsheet h3").textContent = "Spreadsheet Development";
+        document.querySelector(".services .spreadsheet p").textContent = "Creation of spreadsheets (online/desktop) with automation.";
     });
 });
