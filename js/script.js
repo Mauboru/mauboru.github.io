@@ -92,6 +92,8 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".services .spreadsheet h3").textContent = "Desenvolvimento de Planilhas";
         document.querySelector(".services .spreadsheet p").textContent = "Criação de planilhas (online/desktop) com automação.";
 
+        document.querySelector(".portfolio h2").innerHTML = "Ultimos <span>Projetos</span>";
+
         document.querySelector(".contact h2").innerHTML = "Fale <span>Comigo!</span>";
         document.querySelector(".contact form .textname").placeholder = "Nome Completo";
         document.querySelector(".contact form .email").placeholder = "Endereço de Email";
@@ -138,6 +140,8 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".services .power p").textContent = "Creation of dashboards with database!";
         document.querySelector(".services .spreadsheet h3").textContent = "Spreadsheet Development";
         document.querySelector(".services .spreadsheet p").textContent = "Creation of spreadsheets (online/desktop) with automation.";
+
+        document.querySelector(".portfolio h2").innerHTML = "Last <span>Projects</span>";
 
         document.querySelector(".contact h2").innerHTML = "Talk to <span>Me!</span>";
         document.querySelector(".contact form .textname").placeholder = "Full Name";
