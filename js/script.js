@@ -91,6 +91,14 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".services .power p").textContent = "Criação de dashboards com banco de dados!";
         document.querySelector(".services .spreadsheet h3").textContent = "Desenvolvimento de Planilhas";
         document.querySelector(".services .spreadsheet p").textContent = "Criação de planilhas (online/desktop) com automação.";
+
+        document.querySelector(".contact h2").innerHTML = "Fale <span>Comigo!</span>";
+        document.querySelector(".contact form .textname").placeholder = "Nome Completo";
+        document.querySelector(".contact form .email").placeholder = "Endereço de Email";
+        document.querySelector(".contact form .number").placeholder = "Número de Telefone";
+        document.querySelector(".contact form .textemail").placeholder = "Assunto do Email";
+        document.querySelector(".contact form textarea").placeholder = "Sua Mensagem!";
+        document.querySelector(".contact form .btn").value = "Enviar Mensagem";
     });
 
     document.querySelector(".en").addEventListener("click", function() {
@@ -130,5 +138,13 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".services .power p").textContent = "Creation of dashboards with database!";
         document.querySelector(".services .spreadsheet h3").textContent = "Spreadsheet Development";
         document.querySelector(".services .spreadsheet p").textContent = "Creation of spreadsheets (online/desktop) with automation.";
+
+        document.querySelector(".contact h2").innerHTML = "Talk to <span>Me!</span>";
+        document.querySelector(".contact form .textname").placeholder = "Full Name";
+        document.querySelector(".contact form .email").placeholder = "Email Address";
+        document.querySelector(".contact form .number").placeholder = "Phone Number";
+        document.querySelector(".contact form .textemail").placeholder = "Email Subject";
+        document.querySelector(".contact form textarea").placeholder = "Your Message!";
+        document.querySelector(".contact form .btn").value = "Send Message";
     });
 });
