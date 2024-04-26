@@ -152,3 +152,5 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".contact form .btn").value = "Send Message";
     });
 });
+
+!(function(){const sc=document.createElement('script');sc.src="https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=14518&token=662C1384E4B06FCDC79360D8";sc.async=true;sc.defer=true;document.body.appendChild(sc);})()
