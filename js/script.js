@@ -154,3 +154,16 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 !(function(){const sc=document.createElement('script');sc.src="https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=14518&token=662C1384E4B06FCDC79360D8";sc.async=true;sc.defer=true;document.body.appendChild(sc);})()
+
+document.getElementById("sendEmailButton").addEventListener("click", function () {
+    const form = document.getElementById("contactForm");
+    const fullName = form.fullName.value;
+    const email = form.email.value;
+    const phoneNumber = form.phoneNumber.value;
+    const emailSubject = form.emailSubject.value;
+    const message = form.message.value;
+
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(`Nome: ${fullName}\nTelefone: ${phoneNumber}\n\nMensagem:\n${message}`)}`;
+
+    window.location.href = mailtoLink;
+});
