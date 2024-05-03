@@ -3,6 +3,8 @@ let navBar = document.querySelector('.navbar')
 let sections = document.querySelectorAll('section')
 let navLinks = document.querySelectorAll('header nav a')
 
+// remove
+
 const typed = new Typed('.multiple-text', {
     strings: [
         'Back-End developer', 
