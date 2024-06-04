@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -6,7 +8,7 @@
     border: none;
     outline: none;
     scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Alegreya', sans-serif;
 }
 
 :root{
@@ -17,4 +19,9 @@
 body{
     background-color: var(--bg-color);
     color: var(--text-color);
+}
+
+h2 {
+    font-family: 'Alegreya', sans-serif;
+    font-weight: 800;
 }
