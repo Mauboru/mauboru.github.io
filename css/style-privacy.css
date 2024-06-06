@@ -25,3 +25,11 @@ h2 {
     font-family: 'Alegreya', sans-serif;
     font-weight: 800;
 }
+
+.navbar-brand{
+    color: black;
+}
+
+.navbar-brand:hover {
+    color: rgba(0, 0, 0, 0.582);
+}
