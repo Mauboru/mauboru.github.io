@@ -60,7 +60,7 @@
     margin: .3rem 0 1rem;
 }
 
-.portfolio-layer a {
+.portfolio-layer .anchor {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -70,7 +70,50 @@
     border-radius: 50%;
 }
 
-.portfolio-layer a i{
+.portfolio-layer .anchor i{
     font-size: 2rem;
     color: var(--second-bg-color);
+}
+
+.card {
+    width: 100%;
+    max-width: 290px;
+    height: 70px;
+    background: #323946;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    backdrop-filter: blur(10px);
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.img {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    border-radius: 10px;
+    background: url("/images/icon.gif");
+}
+
+.textBox {
+    width: calc(100% - 90px);
+    margin-left: 10px;
+    color: white;
+    font-family: 'Poppins' sans-serif;
+}
+
+.textContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.span {
+    font-size: 10px;
 }
