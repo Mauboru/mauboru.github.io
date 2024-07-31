@@ -117,3 +117,23 @@
 .span {
     font-size: 10px;
 }
+
+/* POWERBI */
+
+.powerbi{
+    background: var(--second-bg-color);
+}
+
+.powerbi h2{
+    margin-bottom: 4rem;
+}
+
+.powerbi .powerbi-back {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.carousel-inner {
+    border-radius: 4%;
+}
