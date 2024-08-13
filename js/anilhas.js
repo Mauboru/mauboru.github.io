@@ -11,7 +11,7 @@
         
         return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
     }
-
+// testadno
     setInterval(function () {
         $.get("http://85.31.63.241:3000/anilhas", function(data) {
             let obj = data;
