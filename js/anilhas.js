@@ -13,7 +13,7 @@
     }
 
     setInterval(function () {
-        $.get("https://85.31.63.241:3000/anilhas", function(data) {
+        $.get("http://85.31.63.241:3000/anilhas", function(data) {
             let obj = data;
             
             $('#table > tbody').empty();
