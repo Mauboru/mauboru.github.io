@@ -8,6 +8,8 @@
         const hours = pad(date.getHours());
         const minutes = pad(date.getMinutes());
         const seconds = pad(date.getSeconds());
+
+        //teste subir
         
         return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
     }
