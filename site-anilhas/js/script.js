@@ -13,7 +13,7 @@ function formatDateTime(dateTime) {
 }
 
 setInterval(function () {
-    $.get("https://85.31.63.241:3001/anilhas", function(data) {
+    $.get("https://85.31.63.241:3001/listarAnilha", function(data) {
         let obj = data;
         
         $('#table > tbody').empty();
