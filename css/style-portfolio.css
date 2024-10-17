@@ -75,47 +75,57 @@
     color: var(--second-bg-color);
 }
 
-.card {
+.portfolio-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 290px;
-    height: 70px;
-    background: #323946;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    backdrop-filter: blur(10px);
-    transition: 0.5s ease-in-out;
-}
-
-.card:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-}
-
-.img {
-    width: 50px;
-    height: 50px;
-    margin-left: 10px;
-    border-radius: 10px;
-    background: url("/images/icon.gif");
-}
-
-.textBox {
-    width: calc(100% - 90px);
-    margin-left: 10px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
     color: white;
-    font-family: 'Poppins' sans-serif;
-}
-
-.textContent {
+    opacity: 0;
+    transition: opacity 0.3s ease;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    padding: 20px;
+    text-align: center;
 }
 
-.span {
-    font-size: 10px;
+.portfolio-box:hover .portfolio-layer {
+    opacity: 1;
+}
+
+.portfolio-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #28492a;
 }
 
 /* POWERBI */
