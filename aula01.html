@@ -117,6 +117,8 @@
         <p>Bem-vindo! Vamos explorar como os jogos são criados e como podemos dar os primeiros passos na programação.</p>
     </section>
 
+    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTROxZg1nqrPbaXKPPykB0AxlaGvN-3VKykJEieOBatTa2ZaoL3ouAl-x1SXrSFCVzrQna_i4TZcfId/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
     <section id="mercado">
         <h2>Mercado de Jogos</h2>
         <p>O mercado de jogos é uma das indústrias mais lucrativas do entretenimento, abrangendo diversas plataformas, como <strong>consoles</strong>, <strong>PCs</strong> e <strong>dispositivos móveis</strong>. Ele está dividido entre grandes produções (AAA) e o mercado independente (indie).</p>
@@ -226,57 +228,58 @@
             <li>Criação do cenário (mapa simples).</li>
             <li>Movimentação do personagem em quatro direções.</li>
             <li>Configuração de colisão com paredes.</li>
+            <li><a href="assets.rar" download="assets.rar">Download Assets</a></li>
         </ul>
     
         <h3>1. Criando Sprites</h3>
         <p>Primeiro, crie dois sprites:</p>
         <ul>
-            <li><strong>sPlayer:</strong> Um sprite do personagem com quadros de animação para cima, baixo, esquerda e direita.</li>
-            <li><strong>sWall:</strong> Sprite que representa uma parede ou obstáculo.</li>
+            <li><strong>sJogador:</strong> Um sprite do personagem com quadros de animação para cima, baixo, esquerda e direita.</li>
+            <li><strong>sParede:</strong> Sprite que representa uma parede ou obstáculo.</li>
         </ul>
     
         <h3>2. Criando Objetos</h3>
         <p>Agora, crie os objetos:</p>
         <ul>
-            <li><strong>oPlayer:</strong> Objeto controlado pelo jogador. Associe o <code>sPlayer</code> a ele.</li>
-            <li><strong>oWall:</strong> Objeto que representa paredes no jogo. Associe o <code>sWall</code> a ele.</li>
+            <li><strong>oJogador:</strong> Objeto controlado pelo jogador. Associe o <code>sJogador</code> a ele.</li>
+            <li><strong>oParede:</strong> Objeto que representa paredes no jogo. Associe o <code>sParede</code> a ele.</li>
         </ul>
     
         <h3>3. Movimentação do Personagem</h3>
-        <p>No evento <strong>Step</strong> do <code>oPlayer</code>, adicione o seguinte código para movimentação em quatro direções.</p>
+        <p>No evento <strong>Step</strong> do <code>oJogador</code>, adicione o seguinte código para movimentação em quatro direções.</p>
         <div class="code-block">
     <pre>
-    var move_speed = 4;
+    var velocidadeDoMovimento = 4;
     
     if (keyboard_check(vk_left)) {
-        x -= move_speed;
-        sprite_index = sPlayerLeft;
+        x -= velocidadeDoMovimento;
+        sprite_index = sJogadorEsquerda;
     } 
     else if (keyboard_check(vk_right)) {
-        x += move_speed;
-        sprite_index = sPlayerRight;
+        x += velocidadeDoMovimento;
+        sprite_index = sJogadorDireita;
     }
     else if (keyboard_check(vk_up)) {
-        y -= move_speed;
-        sprite_index = sPlayerUp;
+        y -= velocidadeDoMovimento;
+        sprite_index = sJogadorCima;
     }
     else if (keyboard_check(vk_down)) {
-        y += move_speed;
-        sprite_index = sPlayerDown;
+        y += velocidadeDoMovimento;
+        sprite_index = sJogadorBaixo;
     }
     </pre>
         </div>
     
         <h3>4. Configurando a Colisão</h3>
-        <p>Para garantir que o jogador não atravesse as paredes, adicione um evento de <strong>Collision</strong> no <code>oPlayer</code> contra o <code>oWall</code>. No evento de colisão, use o seguinte código:</p>
+        <p>Para garantir que o jogador não atravesse as paredes, adicione um evento de <strong>Collision</strong> no <code>oJogador</code> contra o <code>oParede</code>. No evento de colisão, use o seguinte código:</p>
         <div class="code-block">
     <pre>
-    if (place_meeting(x, y, oWall)) {
+    if (place_meeting(x, y, oParede)) {
         // Impede o movimento na direção em que há colisão
-        if (keyboard_check(vk_left)) x += move_speed;
-        if (keyboard_check(vk_right)) x -= move_speed;
-        if (keyboard_check(vk_up)) y += move_speed;
-        if (keyboard_check(vk_down)) y -= move_speed;
+        if (keyboard_check(vk_left)) x += velocidadeDoMovimento;
+        if (keyboard_check(vk_right)) x -= velocidadeDoMovimento;
+        if (keyboard_check(vk_up)) y += velocidadeDoMovimento;
+        if (keyboard_check(vk_down)) y -= velocidadeDoMovimento;
     }
     </pre>
         </div>
@@ -284,8 +287,8 @@
         <h3>5. Criando o Mapa</h3>
         <p>No GameMaker, abra uma <strong>Room</strong> e posicione objetos para criar o cenário. Coloque:</p>
         <ul>
-            <li><strong>oWall:</strong> Para criar as paredes e delimitar o cenário.</li>
-            <li><strong>oPlayer:</strong> No ponto inicial desejado para o personagem.</li>
+            <li><strong>oParede:</strong> Para criar as paredes e delimitar o cenário.</li>
+            <li><strong>oJogador:</strong> No ponto inicial desejado para o personagem.</li>
         </ul>
     
         <h3>6. Testando o Jogo</h3>
