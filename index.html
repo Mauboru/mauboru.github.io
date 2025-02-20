@@ -8,10 +8,8 @@
     <title>TecnoMaub | Portfólio Josué Henrique</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-    <!-- Box icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- Custom css -->
     <link rel="stylesheet" href="css/style-header.css">
     <link rel="stylesheet" href="css/style-home.css">
     <link rel="stylesheet" href="css/style-about.css">
@@ -34,18 +32,10 @@
             <a href="#services">Serviços</a>
             <a href="#portfolio">Portfólio</a>
             <a href="#contact">Contato</a>
-            <a href="/aula01.html">Aula 01</a>
-            <div class="language">
-                <div class="language-selected"></div>
-                <ul>
-                    <li><a href="#" class="br"></a></li>
-                    <li><a href="#" class="en"></a></li>
-                </ul>
-            </div>
         </nav>
     </header>
 
-    <!-- home section design -->
+    <!-- home section design ✅ -->
     <section class="home" id="home">
         <div class="home-content">
             <h1>Josué Henrique</h1>
@@ -61,18 +51,36 @@
                 <a href="https://www.linkedin.com/in/josu%C3%A9-henrique-8a56a9192/" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
                 <a href="https://instagram.com/josuas_hr?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"><i class='bx bxl-instagram-alt' ></i></a>
             </div>
-            <a href="Josue Henrique - Curriculo.pdf" class="btn" download="Josue Henrique - Curriculo.pdf">Download CV</a>
+            <a href="downloads/Josue Henrique - Curriculo.pdf" class="btn" download="Josue Henrique - Curriculo.pdf">Download CV</a>
         </div>
         <div class="home-img">
             <img src="images/img1.png" alt="">
         </div>
     </section>
 
-    <!-- about section design -->
+    <!-- about section design ⚠️ -->
     <section class="about" id="about">
-        <div class="about-img">
-            <img src="images/img2.png" alt="">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active text-center">
+                    <img src="images/carrousel/img1.png" class="d-block mx-auto img-fluid fixed-size" alt="">
+                    <span class="d-block mt-2">Apresentação em Iguape/SP no centro da cidade</span>
+                </div>
+                <div class="carousel-item text-center">
+                    <img src="images/carrousel/img2.png" class="d-block mx-auto img-fluid fixed-size" alt="">
+                    <span class="d-block mt-2">Apresentação em Matinhos/PR na Chosen</span>
+                </div>
+                <div class="carousel-item text-center">
+                    <img src="images/carrousel/img3.png" class="d-block mx-auto img-fluid fixed-size" alt="">
+                    <span class="d-block mt-2">Apresentação de TCC em Matinhos/PR na SEPIN</span>
+                </div>
+                <div class="carousel-item text-center">
+                    <img src="images/carrousel/img4.png" class="d-block mx-auto img-fluid fixed-size" alt="">
+                    <span class="d-block mt-2">Viagem em São Paulo/SP em um trem</span>
+                </div>
+            </div>
         </div>
+
         <div class="about-content">
             <h2 class="heading">Sobre <span>Mim</span></h2>
             <h3>Violinista e Programador!</h3>
@@ -91,7 +99,7 @@
         </div>
     </section>
 
-    <!-- services section design -->
+    <!-- services section design ✅ -->
     <section class="services" id="services">
         <h2 class="heading">Meus <span>Serviços</span></h2>
 
@@ -101,7 +109,7 @@
                 <i class='bx bx-joystick-alt'></i>
                 <div class="game">
                     <h3>Desenvolvimento de Jogos</h3>
-                    <p>Criação de jogos 2D, traga sua idéia e deixe a ganhar vida!</p>
+                    <p>Criação de jogos 2D e 3D, traga sua idéia e deixe a ganhar vida!</p>
                 </div>
                 <a href="#" class="btn">Leia Mais</a>
             </div>
@@ -109,8 +117,8 @@
             <div class="services-box">
                 <i class='bx bx-code-alt'></i>
                 <div class="code">
-                    <h3>Desenvolvimento de Sistemas</h3>
-                    <p>Criação de sistemas com banco de dados em Java e Python!</p>
+                    <h3>Desenvolvimento de Sistemas/API</h3>
+                    <p>Criação de sistemas e API em Node, Python e Java</p>
                 </div>
                 <a href="#" class="btn">Leia Mais</a>
             </div>
@@ -119,24 +127,24 @@
                 <i class='bx bx-code-block'></i>
                 <div class="data">
                     <h3>Desenvolvimento WEB</h3>
-                    <p>Criação de sites com conexão a banco de dados!</p>
+                    <p>Criação de sites completos em Laravel, React e Vue</p>
                 </div>
                 <a href="#" class="btn">Leia Mais</a>
             </div>
 
-            <!-- <div class="services-box">
+            <div class="services-box">
                 <i class='bx bxl-android' ></i>
                 <h3>Desenvolvimento de App</h3>
-                <p>Criação de aplicativos Android e IOS
+                <p>Criação de aplicativos Android e IOS utilizando React Native
                 </p>
                 <a href="#" class="btn">Leia Mais</a>
-            </div> -->
+            </div>
 
             <div class="services-box">
                 <i class='bx bx-signal-3'></i>
                 <div class="power">
                     <h3>Desenvolvimento de Power BI</h3>
-                    <p>Criação de dashboards com banco de dados!</p>
+                    <p>Criação de dashboards com banco de dados e links públicos!</p>
                 </div>
                 <a href="#" class="btn">Leia Mais</a>
             </div>
@@ -152,7 +160,7 @@
         </div>
     </section>
 
-    <!-- portfolio section design -->
+    <!-- portfolio section design ⚠️ -->
     <section class="portfolio" id="portfolio">
         <h2 class="heading">Últimos <span>Projetos</span></h2>
         <div class="portfolio-container">
@@ -181,7 +189,7 @@
                         <a class="anchor" href="https://gx.games/pt-br/games/gg8xv5/eco-guardioes/" target="_blank">
                             <i class="bx bx-link-external"></i>
                         </a>
-                        <a href="EcoGuardioes.apk" download="EcoGuardioes.apk" class="download-btn">
+                        <a href="downloads/EcoGuardioes.apk" download="EcoGuardioes.apk" class="download-btn">
                             <i class="bx bx-download"></i> Baixar APK
                         </a>
                     </div>
@@ -200,7 +208,7 @@
             </div>
 
             <!-- Isolat -->
-            <!-- <div class="portfolio-box">
+            <div class="portfolio-box">
                 <img src="/images/isolat.jpeg" alt="">
                 <div class="portfolio-layer">
                     <h4>Isolat</h4>
@@ -208,10 +216,10 @@
                     </p>
                     <a class="anchor" href="https://gx.games/games/ntgo6w/isolat/" target="_blank"><i class="bx bx-link-external"></i></a>
                 </div>
-            </div> -->
+            </div>
 
             <!-- Zenko em busca do poder -->
-            <!-- <div class="portfolio-box">
+            <div class="portfolio-box">
                 <img src="/images/zenko.jpeg" alt="">
                 <div class="portfolio-layer">
                     <h4>Zenko - em busca do poder</h4>
@@ -219,10 +227,10 @@
                     </p>
                     <a class="anchor" href="https://gx.games/games/xau367/zenko-em-busca-do-poder/" target="_blank"><i class="bx bx-link-external"></i></a>
                 </div>
-            </div> -->
+            </div>
 
             <!-- Jogos Olimpicos -->
-            <!-- <div class="portfolio-box">
+            <div class="portfolio-box">
                 <img src="/images/olimpico.jpeg" alt="">
                 <div class="portfolio-layer">
                     <h4>Jogos Olimpicos</h4>
@@ -230,7 +238,7 @@
                     </p>
                     <a class="anchor" href="https://gx.games/games/tx93o1/jogos-olimpicos/tracks/27c3dfb7-c04e-4ab4-bdab-dda421a2cec9/" target="_blank"><i class="bx bx-link-external"></i></a>
                 </div>
-            </div> -->
+            </div>
 
             <!-- Oraculo -->
             <div class="portfolio-box">
@@ -253,82 +261,48 @@
             </div>
 
             <!-- Cetáceos -->
-            <!-- <div class="portfolio-box">
+            <div class="portfolio-box">
                 <img src="/images/Power-BI.png" alt="">
                 <div class="portfolio-layer">
                     <h4>Medidor de Cetáceos</h4>
                     <p>Criação do Power BI com dados de encalhe de cetáceos.</p>
                     <a class="anchor" href="https://app.powerbi.com/view?r=eyJrIjoiNjY1Y2I1MDctNWRlYy00ODkwLWEwYTItMTZlZmVkZTVhNjRmIiwidCI6ImI0OTA2OGJkLTFhODgtNDlmNy04NmMyLTc3ZWE2YjMyM2FlYiJ9&pageName=ReportSection" target="_blank"><i class="bx bx-link-external"></i></a>
                 </div>
-            </div> -->
+            </div>
 
             <!-- Águas estuarinas -->
-            <!-- <div class="portfolio-box">
+            <div class="portfolio-box">
                 <img src="/images/Power-BI.png" alt="">
                 <div class="portfolio-layer">
                     <h4>Medidor Águas Estuarinas</h4>
                     <p>Criação do Power BI com dados de água da empresa TCP.</p>
                     <a class="anchor" href="https://app.powerbi.com/view?r=eyJrIjoiNmQwMGQ5MzMtYjA3Zi00OGVlLWIzOWEtMjYxY2JkMDE4MmRkIiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9" target="_blank"><i class="bx bx-link-external"></i></a>
                 </div>
-            </div> -->
+            </div>
 
             <!-- Monitoramento de PH -->
-            <!-- <div class="portfolio-box">
+            <div class="portfolio-box">
                 <img src="/images/Power-BI.png" alt="">
                 <div class="portfolio-layer">
                     <h4>Medidor de PH</h4>
                     <p>Criação do Power BI com dados de água da empresa Águas Paranaguá.</p>
                     <a class="anchor" href="https://app.powerbi.com/view?r=eyJrIjoiZjY2NTZiYzgtNWQ1My00NjgxLTgxMGMtMjI5NDMxZTZhMWU1IiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9" target="_blank"><i class="bx bx-link-external"></i></a>
                 </div>
-            </div>   -->
+            </div>  
 
             <!-- Painel de Lesgilacao -->
-            <!-- <div class="portfolio-box">
+            <div class="portfolio-box">
                 <img src="/images/Power-BI.png" alt="">
                 <div class="portfolio-layer">
                     <h4>Painel de Legislação</h4>
                     <p>Criação do Power BI com dados de leis.</p>
                     <a href="https://app.powerbi.com/view?r=eyJrIjoiMmI5MjM0NDgtNDZlOC00YTcwLWJiMzUtNDc1MTkwNmUyMTA3IiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9" target="_blank"><i class="bx bx-link-external"></i></a>
                 </div>
-            </div>   -->
+            </div>  
         </div>
     </section>
 
-    <!-- power bi section design -->
-    <section class="powerbi" id="powerbi">
-        <h2 class="heading">Power <span>BI</span></h2>
-        <div class="powerbi-back">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <iframe title="Monitoramento de Cetáceos" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiODY1ZGZhNmUtYjM5NS00ZmM1LTliYjItOGNiNTU3OTM2YWZlIiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9" frameborder="0" allowFullScreen="true"></iframe>
-                    </div>
-                    <div class="carousel-item">
-                        <iframe title="Medidor aguas estuarinas" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNmQwMGQ5MzMtYjA3Zi00OGVlLWIzOWEtMjYxY2JkMDE4MmRkIiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9" frameborder="0" allowFullScreen="true"></iframe>
-                    </div>
-                    <div class="carousel-item">
-                        <iframe title="Medidor de PH" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiZjY2NTZiYzgtNWQ1My00NjgxLTgxMGMtMjI5NDMxZTZhMWU1IiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9" frameborder="0" allowFullScreen="true"></iframe>
-                    </div>
-                    <div class="carousel-item">
-                        <iframe title="Painel de Legislação" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMmI5MjM0NDgtNDZlOC00YTcwLWJiMzUtNDc1MTkwNmUyMTA3IiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9" frameborder="0" allowFullScreen="true"></iframe>
-                    </div>
-                    <div class="carousel-item">
-                        <iframe title="Monitoramento de Mamiferos" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNzliY2Y5YWUtM2QxMy00Yzc2LWFhYjQtYmI1MGZlNDA5MTRmIiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9" frameborder="0" allowFullScreen="true"></iframe>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- contact section desig -->
+    <!-- contact section desig ⚠️ -->
     <section class="contact" id="contact">
         <h2 class="heading">Fale <span>Comigo!</span></h2>
         <form id="contactForm">
@@ -345,7 +319,7 @@
         </form>
     </section>
 
-    <!-- footer design -->
+    <!-- footer design ✅ -->
     <footer class="footer">
         <div class="footer-text">
             <p>Copyright &copy; 2023 by TecnoMaub | All Rights Reserved.</p>
