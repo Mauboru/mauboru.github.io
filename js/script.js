@@ -5,11 +5,11 @@ let navLinks = document.querySelectorAll('header nav a')
 
 const typed = new Typed('.multiple-text', {
     strings: [
-        'Back-End developer', 
-        'Violinist', 
+        'Desenvolvedor Web', 
+        'Violinista', 
+        'Desenvolvedor Mobile', 
         'Rabequista',
-        'Games developer',
-        'Python developer'
+        'Desenvolvedor de Games',
     ],
     typeSpeed: 100,
     backSpeed: 100,

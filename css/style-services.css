@@ -1,16 +1,15 @@
-.services h2{
-    margin-bottom: 5rem;
+.services h2 {
+   margin-bottom: 5rem;
 }
 
-.services-container{
+.services-container {
    display: flex;
-   justify-content: content;
-   align-items: center;
    flex-wrap: wrap;
    gap: 2rem;
+   justify-content: center;
 }
 
-.services-container .services-box{
+.services-container .services-box {
    flex: 1 1 30rem;
    background: var(--second-bg-color);
    padding: 3rem 2rem 4rem;
@@ -18,23 +17,28 @@
    text-align: center;
    border: .2rem solid var(--bg-color);
    transition: .5s ease;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   min-height: 350px;
+   box-sizing: border-box;
 }
 
-.services-container .services-box:hover{
+.services-container .services-box:hover {
    border-color: var(--main-color);
    transform: scale(1.02);
 }
 
-.services-box i{
+.services-box i {
    font-size: 7rem;
    color: var(--main-color);
 }
 
-.services-box h3{
+.services-box h3 {
    font-size: 2.6rem;
 }
 
-.services-box p{
+.services-box p {
    font-size: 1.6rem;
    margin: 1rem 0 3rem;
 }
