@@ -68,3 +68,61 @@ document.getElementById("sendEmailButton").addEventListener("click", function ()
 
     window.location.href = mailtoLink;
 });
+
+const systems = [
+    { name: "Tropical Testes", url: "https://tropicaltestes.1nfotech.link/", img: "https://tropicaltestes.1nfotech.link/images/logo/logo.png" },
+    { name: "Framework Infotech", url: "https://fw.infotech-solucoes.com/", img: "https://fw.infotech-solucoes.com/build/assets/infotech250x250-CH6JibDa.png" },
+    { name: "Monkey Mart", url: "https://monkeymart.tecnomaub.site/", img: "https://monkeymart.tecnomaub.site/icon.png" },
+    { name: "Afinacai Cara", url: "https://afinacaicara.tecnomaub.site/", img: "https://afinacaicara.tecnomaub.site/icon.png" },
+    { name: "Agendo Aqui", url: "https://agendoaqui.infotech.app.br/", img: "https://agendoaqui.infotech.app.br/logo.png" },
+    { name: "API - Agendo Aqui", url: "https://api-agendoaqui.infotech.app.br/", img: "https://cdn-icons-png.freepik.com/512/2165/2165004.png" },
+    { name: "AutoTrainer AI", url: "https://autotrainerai.tecnomaub.site/", img: "https://autotrainerai.tecnomaub.site/logo.png" },
+    { name: "API - AutoTrainer AI", url: "https://api-autotrainerai.tecnomaub.site/", img: "https://cdn-icons-png.freepik.com/512/2165/2165004.png" },
+    { name: "Bolsistas Registro", url: "https://bolsistasregistro.tecnomaub.site/", img: "https://bolsistasregistro.tecnomaub.site/logo.png" },
+    { name: "API - Bolsistas Registro", url: "https://api-bolsistasregistro.tecnomaub.site/", img: "https://cdn-icons-png.freepik.com/512/2165/2165004.png" },
+    { name: "SOS Gasosa", url: "https://sosgasosa.tecnomaub.site/", img: "https://sosgasosa.tecnomaub.site/logo.png" },
+    { name: "API - SOS Gasosa", url: "https://api-sosgasosa.tecnomaub.site/", img: "https://cdn-icons-png.freepik.com/512/2165/2165004.png" },
+    { name: "Run Live Bet", url: "https://runlivebet.tecnomaub.site/", img: "https://runlivebet.tecnomaub.site/logomarca.png" },
+    { name: "API - Run Live Bet", url: "https://api-rls.tecnomaub.site/", img: "https://cdn-icons-png.freepik.com/512/2165/2165004.png" },
+    { name: "Grandes Mamíferos", url: "https://grandesmamiferos.tecnomaub.site/", img: "https://grandesmamiferos.tecnomaub.site/logo.png" },
+    { name: "API - Grandes Mamíferos", url: "https://api-serradomar.tecnomaub.site/", img: "https://cdn-icons-png.freepik.com/512/2165/2165004.png" },
+    { name: "Rupia Wallet", url: "https://rupiawallet.tecnomaub.site/", img: "https://rupiawallet.tecnomaub.site/logo.png" },
+    { name: "API - Rupia Wallet", url: "https://api-rupiawallet.tecnomaub.site/", img: "https://cdn-icons-png.freepik.com/512/2165/2165004.png" }
+];
+
+async function updateSystemsStatus() {
+    const container = document.getElementById("systems-container");
+    container.innerHTML = "";
+
+    for (const sys of systems) {
+        const online = await checkSystem(sys.url);
+        const statusClass = online ? "system-online" : "system-offline";
+        const statusText = online ? "Online" : "Offline";
+
+        container.innerHTML += `
+            <div class="system-card">
+                <a href="${sys.url}" target="_blank">
+                    <img src="${sys.img}" alt="${sys.name}">
+                </a>
+                <h3>${sys.name}</h3>
+                <div class="system-status ${statusClass}">${statusText}</div>
+            </div>
+        `;
+    }
+}
+
+async function checkSystem(url) {
+    try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 5000);
+
+        const response = await fetch(url, { mode: 'no-cors', signal: controller.signal });
+        clearTimeout(timeout);
+        return true;
+    } catch {
+        return false;
+    }
+}
+
+updateSystemsStatus();
+setInterval(updateSystemsStatus, 30000);
