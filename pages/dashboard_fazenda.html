@@ -1,481 +1,638 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Agrícola Interativo</title>
-    <a href="downloads/dados.xls" class="btn" download="dados.xls">baixar dados</a>
+    <a href="../downloads/dados.xls" class="btn" download="dados.xls"
+      >baixar dados</a
+    >
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Leaflet (Mapa) CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
     <!-- Leaflet Draw (Desenho no Mapa) CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"
+    />
 
     <!-- Fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        #map {
-            height: 400px; /* Altura ajustada para acomodar o seletor de fazendas */
-            width: 100%;
-            border-radius: 0.5rem;
-            z-index: 0;
-        }
-        .leaflet-container {
-            background-color: #f0f0f0;
-        }
-        .chart-container {
-            position: relative;
-            height: 300px;
-            width: 100%;
-        }
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            color: white;
-            z-index: 10000;
-            opacity: 0;
-            transition: opacity 0.5s, transform 0.5s;
-            transform: translateY(-20px);
-        }
-        .notification.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .notification.success { background-color: #28a745; }
-        .notification.error { background-color: #dc3545; }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      #map {
+        height: 400px; /* Altura ajustada para acomodar o seletor de fazendas */
+        width: 100%;
+        border-radius: 0.5rem;
+        z-index: 0;
+      }
+      .leaflet-container {
+        background-color: #f0f0f0;
+      }
+      .chart-container {
+        position: relative;
+        height: 300px;
+        width: 100%;
+      }
+      .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 1rem 1.5rem;
+        border-radius: 0.5rem;
+        color: white;
+        z-index: 10000;
+        opacity: 0;
+        transition: opacity 0.5s, transform 0.5s;
+        transform: translateY(-20px);
+      }
+      .notification.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .notification.success {
+        background-color: #28a745;
+      }
+      .notification.error {
+        background-color: #dc3545;
+      }
     </style>
-</head>
-<body class="bg-gray-100 text-gray-800">
+  </head>
+  <body class="bg-gray-100 text-gray-800">
     <div class="container mx-auto p-4 md:p-8">
-        <header class="mb-8 text-center bg-white p-8 rounded-lg shadow-md relative">
-            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-500 to-yellow-500 rounded-t-lg"></div>
-            <div class="flex flex-col sm:flex-row items-center sm:space-x-6 space-y-4 sm:space-y-0">
-                <img src="https://www.imagensanimadas.com/data/media/688/trator-imagem-animada-0017.gif" alt="" class="w-24 h-24">
-                <div class="flex flex-col">
-                    <h1 class="text-4xl font-bold text-gray-800">Dashboard de Análise de Colheita</h1>
-                </div>
-            </div>
-        </header>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Coluna da Esquerda: Mapa e Controles -->
-            <div class="lg:col-span-1 bg-white p-6 rounded-lg shadow-lg flex flex-col gap-6">
-                <div>
-                    <h2 class="text-2xl font-semibold mb-3 text-gray-700">1. Selecionar Fazenda</h2>
-                    <div id="farm-selector" class="space-y-2">
-                        <!-- Radio buttons serão inseridos aqui via JS -->
-                    </div>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-semibold mb-3 text-gray-700">2. Carregar Planilha</h2>
-                    <p class="text-sm text-gray-500 mb-3">Selecione um arquivo .xlsx ou .csv. As colunas principais devem ser: TALHAO, PESO, UMIDADE, AGROTOXICO.</p>
-                    <input type="file" id="file-input" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"/>
-                </div>
-                
-                <div>
-                    <h2 class="text-2xl font-semibold mb-3 text-gray-700">3. Mapear Talhões</h2>
-                    <div id="map"></div>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-semibold mb-3 text-gray-700">Talhões Mapeados</h2>
-                    <div id="plot-list" class="space-y-2 max-h-60 overflow-y-auto">
-                        <p class="text-gray-500 italic">Nenhum talhão desenhado ainda.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Coluna da Direita: Dashboards -->
-            <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg">
-                <h2 class="text-2xl font-semibold mb-6 text-gray-700" id="dashboard-title">Visão Geral da Fazenda</h2>
-                
-                <!-- Métricas Principais -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div class="bg-gray-50 p-6 rounded-lg text-center">
-                        <h3 class="text-lg font-medium text-gray-500">Peso Total da Colheita (kg)</h3>
-                        <p id="total-weight" class="text-4xl font-bold text-violet-600 mt-2">0</p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-lg text-center">
-                        <h3 class="text-lg font-medium text-gray-500">Umidade Média (%)</h3>
-                        <p id="avg-humidity" class="text-4xl font-bold text-violet-600 mt-2">0</p>
-                    </div>
-                </div>
-
-                <!-- Gráficos -->
-                <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-8">
-                    <div class="chart-container">
-                        <h3 class="text-xl font-semibold text-center mb-4 text-gray-600">Peso por Talhão</h3>
-                        <canvas id="weight-chart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <h3 class="text-xl font-semibold text-center mb-4 text-gray-600">Umidade por Talhão</h3>
-                        <canvas id="humidity-chart"></canvas>
-                    </div>
-                </div>
-                
-                <!-- Lista de Agrotóxicos -->
-                <div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-600">Agrotóxicos Utilizados</h3>
-                    <div id="pesticides-list" class="bg-gray-50 p-4 rounded-lg min-h-[100px] text-center">
-                        <p class="text-gray-500 italic">Nenhum dado carregado.</p>
-                    </div>
-                </div>
-            </div>
+      <header
+        class="mb-8 text-center bg-white p-8 rounded-lg shadow-md relative"
+      >
+        <div
+          class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-500 to-yellow-500 rounded-t-lg"
+        ></div>
+        <div
+          class="flex flex-col sm:flex-row items-center sm:space-x-6 space-y-4 sm:space-y-0"
+        >
+          <img
+            src="https://www.imagensanimadas.com/data/media/688/trator-imagem-animada-0017.gif"
+            alt=""
+            class="w-24 h-24"
+          />
+          <div class="flex flex-col">
+            <h1 class="text-4xl font-bold text-gray-800">
+              Dashboard de Análise de Colheita
+            </h1>
+          </div>
         </div>
+      </header>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Coluna da Esquerda: Mapa e Controles -->
+        <div
+          class="lg:col-span-1 bg-white p-6 rounded-lg shadow-lg flex flex-col gap-6"
+        >
+          <div>
+            <h2 class="text-2xl font-semibold mb-3 text-gray-700">
+              1. Selecionar Fazenda
+            </h2>
+            <div id="farm-selector" class="space-y-2">
+              <!-- Radio buttons serão inseridos aqui via JS -->
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-semibold mb-3 text-gray-700">
+              2. Carregar Planilha
+            </h2>
+            <p class="text-sm text-gray-500 mb-3">
+              Selecione um arquivo .xlsx ou .csv. As colunas principais devem
+              ser: TALHAO, PESO, UMIDADE, AGROTOXICO.
+            </p>
+            <input
+              type="file"
+              id="file-input"
+              class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"
+            />
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-semibold mb-3 text-gray-700">
+              3. Mapear Talhões
+            </h2>
+            <div id="map"></div>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-semibold mb-3 text-gray-700">
+              Talhões Mapeados
+            </h2>
+            <div id="plot-list" class="space-y-2 max-h-60 overflow-y-auto">
+              <p class="text-gray-500 italic">Nenhum talhão desenhado ainda.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna da Direita: Dashboards -->
+        <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg">
+          <h2
+            class="text-2xl font-semibold mb-6 text-gray-700"
+            id="dashboard-title"
+          >
+            Visão Geral da Fazenda
+          </h2>
+
+          <!-- Métricas Principais -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-gray-50 p-6 rounded-lg text-center">
+              <h3 class="text-lg font-medium text-gray-500">
+                Peso Total da Colheita (kg)
+              </h3>
+              <p
+                id="total-weight"
+                class="text-4xl font-bold text-violet-600 mt-2"
+              >
+                0
+              </p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg text-center">
+              <h3 class="text-lg font-medium text-gray-500">
+                Umidade Média (%)
+              </h3>
+              <p
+                id="avg-humidity"
+                class="text-4xl font-bold text-violet-600 mt-2"
+              >
+                0
+              </p>
+            </div>
+          </div>
+
+          <!-- Gráficos -->
+          <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-8">
+            <div class="chart-container">
+              <h3 class="text-xl font-semibold text-center mb-4 text-gray-600">
+                Peso por Talhão
+              </h3>
+              <canvas id="weight-chart"></canvas>
+            </div>
+            <div class="chart-container">
+              <h3 class="text-xl font-semibold text-center mb-4 text-gray-600">
+                Umidade por Talhão
+              </h3>
+              <canvas id="humidity-chart"></canvas>
+            </div>
+          </div>
+
+          <!-- Lista de Agrotóxicos -->
+          <div>
+            <h3 class="text-xl font-semibold text-center mb-4 text-gray-600">
+              Agrotóxicos Utilizados
+            </h3>
+            <div
+              id="pesticides-list"
+              class="bg-gray-50 p-4 rounded-lg min-h-[100px] text-center"
+            >
+              <p class="text-gray-500 italic">Nenhum dado carregado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Elemento de Notificação -->
     <div id="notification" class="notification"></div>
 
     <!-- Leaflet (Mapa) JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
     <!-- Leaflet Draw (Desenho no Mapa) JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
-    
+
     <!-- SheetJS (Leitura de Planilhas) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    
+
     <!-- Chart.js (Gráficos) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        // --- Configuração Inicial ---
-        let allData = [];
-        let plotLayers = {}; // Armazena as camadas do mapa e dados associados { talhaoName: { layer, data } }
-        let weightChart, humidityChart;
+      // --- Configuração Inicial ---
+      let allData = [];
+      let plotLayers = {}; // Armazena as camadas do mapa e dados associados { talhaoName: { layer, data } }
+      let weightChart, humidityChart;
 
-        const farms = {
-            'alpha': { name: 'Fazenda Alpha', location: [-23.5505, -46.6333] }, // São Paulo
-            'beta': { name: 'Fazenda Beta', location: [-15.7801, -47.9292] },  // Brasília
-            'ti': { name: 'Fazenda TI', location: [-24.08169076202277, -52.352469978739656] } // Localização fornecida
-        };
+      const farms = {
+        alpha: { name: "Fazenda Alpha", location: [-23.5505, -46.6333] }, // São Paulo
+        beta: { name: "Fazenda Beta", location: [-15.7801, -47.9292] }, // Brasília
+        ti: {
+          name: "Fazenda TI",
+          location: [-24.08169076202277, -52.352469978739656],
+        }, // Localização fornecida
+      };
 
-        // --- Notificações ---
-        const notification = document.getElementById('notification');
-        function showNotification(message, type = 'success') {
-            notification.textContent = message;
-            notification.className = `notification ${type} show`;
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
-        }
+      // --- Notificações ---
+      const notification = document.getElementById("notification");
+      function showNotification(message, type = "success") {
+        notification.textContent = message;
+        notification.className = `notification ${type} show`;
+        setTimeout(() => {
+          notification.classList.remove("show");
+        }, 3000);
+      }
 
-        // --- Inicialização do Mapa ---
-        const map = L.map('map').setView([-15.7801, -47.9292], 4); // Centro do Brasil
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+      // --- Inicialização do Mapa ---
+      const map = L.map("map").setView([-15.7801, -47.9292], 4); // Centro do Brasil
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
 
-        const drawnItems = new L.FeatureGroup();
-        map.addLayer(drawnItems);
+      const drawnItems = new L.FeatureGroup();
+      map.addLayer(drawnItems);
 
-        const drawControl = new L.Control.Draw({
-            edit: {
-                featureGroup: drawnItems,
-                remove: true
+      const drawControl = new L.Control.Draw({
+        edit: {
+          featureGroup: drawnItems,
+          remove: true,
+        },
+        draw: {
+          polygon: {
+            shapeOptions: {
+              color: "#6d28d9", // Violeta
             },
-            draw: {
-                polygon: {
-                    shapeOptions: {
-                        color: '#6d28d9' // Violeta
-                    }
-                },
-                polyline: false,
-                rectangle: false,
-                circle: false,
-                marker: false,
-                circlemarker: false
+          },
+          polyline: false,
+          rectangle: false,
+          circle: false,
+          marker: false,
+          circlemarker: false,
+        },
+      });
+      map.addControl(drawControl);
+
+      // --- Lógica do Seletor de Fazendas ---
+      function setupFarmSelector() {
+        const selectorContainer = document.getElementById("farm-selector");
+        Object.keys(farms).forEach((key, index) => {
+          const farm = farms[key];
+          const div = document.createElement("div");
+          div.className = "flex items-center";
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.id = `farm-${key}`;
+          input.name = "farm";
+          input.value = key;
+          input.className =
+            "h-4 w-4 text-violet-600 border-gray-300 focus:ring-violet-500";
+          if (index === 1) {
+            // Seleciona Brasília por padrão
+            input.checked = true;
+          }
+
+          const label = document.createElement("label");
+          label.htmlFor = `farm-${key}`;
+          label.textContent = farm.name;
+          label.className = "ml-3 block text-sm font-medium text-gray-700";
+
+          div.appendChild(input);
+          div.appendChild(label);
+          selectorContainer.appendChild(div);
+
+          input.addEventListener("change", (e) => {
+            const selectedFarmKey = e.target.value;
+            const selectedFarm = farms[selectedFarmKey];
+            if (selectedFarm) {
+              map.flyTo(selectedFarm.location, 14); // Zoom mais próximo
             }
+          });
         });
-        map.addControl(drawControl);
+      }
 
-        // --- Lógica do Seletor de Fazendas ---
-        function setupFarmSelector() {
-            const selectorContainer = document.getElementById('farm-selector');
-            Object.keys(farms).forEach((key, index) => {
-                const farm = farms[key];
-                const div = document.createElement('div');
-                div.className = 'flex items-center';
-                const input = document.createElement('input');
-                input.type = 'radio';
-                input.id = `farm-${key}`;
-                input.name = 'farm';
-                input.value = key;
-                input.className = 'h-4 w-4 text-violet-600 border-gray-300 focus:ring-violet-500';
-                if (index === 1) { // Seleciona Brasília por padrão
-                    input.checked = true;
+      // --- Lógica de Leitura da Planilha ---
+      document
+        .getElementById("file-input")
+        .addEventListener("change", (event) => {
+          const file = event.target.files[0];
+          if (!file) return;
+
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            try {
+              const data = new Uint8Array(e.target.result);
+              const workbook = XLSX.read(data, { type: "array" });
+              const sheetName = workbook.SheetNames[0];
+              const worksheet = workbook.Sheets[sheetName];
+              const jsonData = XLSX.utils.sheet_to_json(worksheet, {
+                raw: false,
+              });
+
+              if (jsonData.length === 0) {
+                throw new Error(
+                  "A planilha está vazia ou em formato inválido."
+                );
+              }
+
+              const header = Object.keys(jsonData[0]);
+              const findKey = (possibleNames) => {
+                for (const name of possibleNames) {
+                  const found = header.find(
+                    (h) => h.toUpperCase() === name.toUpperCase()
+                  );
+                  if (found) return found;
                 }
+                return null;
+              };
 
-                const label = document.createElement('label');
-                label.htmlFor = `farm-${key}`;
-                label.textContent = farm.name;
-                label.className = 'ml-3 block text-sm font-medium text-gray-700';
+              const keyMap = {
+                talhao: findKey(["TALHAO"]),
+                peso: findKey(["PESO"]),
+                umidade: findKey(["UMIDADE"]),
+                agrotoxico: findKey(["AGROTOXICO", "AGROTÓXICO"]),
+              };
 
-                div.appendChild(input);
-                div.appendChild(label);
-                selectorContainer.appendChild(div);
+              if (
+                !keyMap.talhao ||
+                !keyMap.peso ||
+                !keyMap.umidade ||
+                !keyMap.agrotoxico
+              ) {
+                throw new Error(
+                  "As colunas esperadas (TALHAO, PESO, UMIDADE, AGROTOXICO) não foram encontradas."
+                );
+              }
 
-                input.addEventListener('change', (e) => {
-                    const selectedFarmKey = e.target.value;
-                    const selectedFarm = farms[selectedFarmKey];
-                    if (selectedFarm) {
-                        map.flyTo(selectedFarm.location, 14); // Zoom mais próximo
-                    }
-                });
-            });
+              allData = jsonData.map((row) => ({
+                Talhao: row[keyMap.talhao],
+                Peso: parseFloat(String(row[keyMap.peso]).replace(",", ".")),
+                Umidade: parseFloat(
+                  String(row[keyMap.umidade]).replace(",", ".")
+                ),
+                Agrotóxico: row[keyMap.agrotoxico],
+              }));
+
+              updateDashboard(allData);
+              showNotification("Planilha carregada com sucesso!", "success");
+            } catch (error) {
+              console.error(error);
+              showNotification(
+                `Erro ao ler a planilha: ${error.message}`,
+                "error"
+              );
+              allData = [];
+              updateDashboard(allData);
+            }
+          };
+          reader.readAsArrayBuffer(file);
+        });
+
+      // --- Lógica de Desenho no Mapa ---
+      map.on(L.Draw.Event.CREATED, (event) => {
+        const layer = event.layer;
+        const talhaoName = prompt(
+          "Digite o nome do Talhão (deve corresponder ao nome na planilha):"
+        );
+
+        if (
+          talhaoName &&
+          allData.some((row) => String(row.Talhao) === talhaoName)
+        ) {
+          if (plotLayers[talhaoName]) {
+            showNotification(
+              `O talhão '${talhaoName}' já foi mapeado.`,
+              "error"
+            );
+            return;
+          }
+
+          const talhaoData = allData.filter(
+            (row) => String(row.Talhao) === talhaoName
+          );
+
+          plotLayers[talhaoName] = { layer: layer, data: talhaoData };
+          drawnItems.addLayer(layer);
+
+          layer.bindTooltip(`<b>Talhão: ${talhaoName}</b>`).openTooltip();
+          layer.on("click", () => {
+            updateDashboard(talhaoData, talhaoName);
+          });
+
+          updatePlotList();
+          showNotification(`Talhão '${talhaoName}' mapeado com sucesso.`);
+        } else if (talhaoName) {
+          showNotification(
+            `Nome de talhão '${talhaoName}' não encontrado na planilha.`,
+            "error"
+          );
+        }
+      });
+
+      map.on(L.Draw.Event.EDITED, (event) => {
+        event.layers.eachLayer((layer) => {
+          for (const name in plotLayers) {
+            if (plotLayers[name].layer === layer) {
+              plotLayers[name].layer = layer;
+              break;
+            }
+          }
+        });
+        showNotification("Talhão editado com sucesso.");
+      });
+
+      map.on(L.Draw.Event.DELETED, (event) => {
+        event.layers.eachLayer((layer) => {
+          for (const name in plotLayers) {
+            if (plotLayers[name].layer === layer) {
+              delete plotLayers[name];
+              break;
+            }
+          }
+        });
+        updatePlotList();
+        updateDashboard(allData); // Volta para a visão geral
+        showNotification("Talhão removido.");
+      });
+
+      // --- Funções de Atualização da UI ---
+      function updatePlotList() {
+        const listElement = document.getElementById("plot-list");
+        listElement.innerHTML = "";
+        const names = Object.keys(plotLayers);
+
+        if (names.length === 0) {
+          listElement.innerHTML =
+            '<p class="text-gray-500 italic">Nenhum talhão desenhado ainda.</p>';
+          return;
         }
 
-        // --- Lógica de Leitura da Planilha ---
-        document.getElementById('file-input').addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    const data = new Uint8Array(e.target.result);
-                    const workbook = XLSX.read(data, { type: 'array' });
-                    const sheetName = workbook.SheetNames[0];
-                    const worksheet = workbook.Sheets[sheetName];
-                    const jsonData = XLSX.utils.sheet_to_json(worksheet, { raw: false });
-
-                    if (jsonData.length === 0) {
-                        throw new Error('A planilha está vazia ou em formato inválido.');
-                    }
-
-                    const header = Object.keys(jsonData[0]);
-                    const findKey = (possibleNames) => {
-                        for (const name of possibleNames) {
-                            const found = header.find(h => h.toUpperCase() === name.toUpperCase());
-                            if (found) return found;
-                        }
-                        return null;
-                    };
-
-                    const keyMap = {
-                        talhao: findKey(['TALHAO']),
-                        peso: findKey(['PESO']),
-                        umidade: findKey(['UMIDADE']),
-                        agrotoxico: findKey(['AGROTOXICO', 'AGROTÓXICO'])
-                    };
-
-                    if (!keyMap.talhao || !keyMap.peso || !keyMap.umidade || !keyMap.agrotoxico) {
-                        throw new Error('As colunas esperadas (TALHAO, PESO, UMIDADE, AGROTOXICO) não foram encontradas.');
-                    }
-
-                    allData = jsonData.map(row => ({
-                        Talhao: row[keyMap.talhao],
-                        Peso: parseFloat(String(row[keyMap.peso]).replace(',', '.')),
-                        Umidade: parseFloat(String(row[keyMap.umidade]).replace(',', '.')),
-                        Agrotóxico: row[keyMap.agrotoxico]
-                    }));
-
-                    updateDashboard(allData);
-                    showNotification('Planilha carregada com sucesso!', 'success');
-                    
-                } catch (error) {
-                    console.error(error);
-                    showNotification(`Erro ao ler a planilha: ${error.message}`, 'error');
-                    allData = [];
-                    updateDashboard(allData);
-                }
-            };
-            reader.readAsArrayBuffer(file);
-        });
-
-        // --- Lógica de Desenho no Mapa ---
-        map.on(L.Draw.Event.CREATED, (event) => {
-            const layer = event.layer;
-            const talhaoName = prompt("Digite o nome do Talhão (deve corresponder ao nome na planilha):");
-
-            if (talhaoName && allData.some(row => String(row.Talhao) === talhaoName)) {
-                if (plotLayers[talhaoName]) {
-                    showNotification(`O talhão '${talhaoName}' já foi mapeado.`, 'error');
-                    return;
-                }
-                
-                const talhaoData = allData.filter(row => String(row.Talhao) === talhaoName);
-                
-                plotLayers[talhaoName] = { layer: layer, data: talhaoData };
-                drawnItems.addLayer(layer);
-                
-                layer.bindTooltip(`<b>Talhão: ${talhaoName}</b>`).openTooltip();
-                layer.on('click', () => {
-                    updateDashboard(talhaoData, talhaoName);
-                });
-
-                updatePlotList();
-                showNotification(`Talhão '${talhaoName}' mapeado com sucesso.`);
-            } else if (talhaoName) {
-                showNotification(`Nome de talhão '${talhaoName}' não encontrado na planilha.`, 'error');
-            }
-        });
-        
-        map.on(L.Draw.Event.EDITED, (event) => {
-            event.layers.eachLayer(layer => {
-                for (const name in plotLayers) {
-                    if (plotLayers[name].layer === layer) {
-                        plotLayers[name].layer = layer;
-                        break;
-                    }
-                }
-            });
-            showNotification('Talhão editado com sucesso.');
-        });
-
-        map.on(L.Draw.Event.DELETED, (event) => {
-            event.layers.eachLayer(layer => {
-                for (const name in plotLayers) {
-                    if (plotLayers[name].layer === layer) {
-                        delete plotLayers[name];
-                        break;
-                    }
-                }
-            });
-            updatePlotList();
-            updateDashboard(allData); // Volta para a visão geral
-            showNotification('Talhão removido.');
-        });
-
-        // --- Funções de Atualização da UI ---
-        function updatePlotList() {
-            const listElement = document.getElementById('plot-list');
-            listElement.innerHTML = '';
-            const names = Object.keys(plotLayers);
-
-            if (names.length === 0) {
-                listElement.innerHTML = '<p class="text-gray-500 italic">Nenhum talhão desenhado ainda.</p>';
-                return;
-            }
-
-            names.forEach(name => {
-                const item = document.createElement('div');
-                item.className = 'flex justify-between items-center p-2 bg-gray-100 rounded-lg';
-                item.innerHTML = `
+        names.forEach((name) => {
+          const item = document.createElement("div");
+          item.className =
+            "flex justify-between items-center p-2 bg-gray-100 rounded-lg";
+          item.innerHTML = `
                     <span class="font-medium">${name}</span>
                     <button class="text-sm text-violet-600 hover:text-violet-800" onclick="zoomToTalhao('${name}')">Ver no mapa</button>
                 `;
-                listElement.appendChild(item);
-            });
+          listElement.appendChild(item);
+        });
+      }
+
+      function zoomToTalhao(name) {
+        if (plotLayers[name]) {
+          map.fitBounds(plotLayers[name].layer.getBounds());
+        }
+      }
+
+      function updateDashboard(data, title = null) {
+        document.getElementById("dashboard-title").textContent = title
+          ? `Análise do Talhão: ${title}`
+          : "Visão Geral da Fazenda";
+
+        if (data.length === 0) {
+          document.getElementById("total-weight").textContent = "0";
+          document.getElementById("avg-humidity").textContent = "0";
+          document.getElementById("pesticides-list").innerHTML =
+            '<p class="text-gray-500 italic">Nenhum dado para exibir.</p>';
+          if (weightChart && humidityChart) updateCharts([], []);
+          return;
         }
 
-        function zoomToTalhao(name) {
-            if (plotLayers[name]) {
-                map.fitBounds(plotLayers[name].layer.getBounds());
-            }
+        // Métricas
+        const totalWeight = data.reduce(
+          (sum, row) => sum + (Number(row.Peso) || 0),
+          0
+        );
+        const totalHumidity = data.reduce(
+          (sum, row) => sum + (Number(row.Umidade) || 0),
+          0
+        );
+        const avgHumidity = data.length > 0 ? totalHumidity / data.length : 0;
+
+        document.getElementById("total-weight").textContent =
+          totalWeight.toLocaleString("pt-BR");
+        document.getElementById("avg-humidity").textContent =
+          avgHumidity.toFixed(2);
+
+        // Lista de Agrotóxicos
+        const pesticides = [...new Set(data.map((row) => row.Agrotóxico))];
+        const pesticidesList = document.getElementById("pesticides-list");
+        pesticidesList.innerHTML = "";
+        if (pesticides.length > 0 && pesticides[0] !== undefined) {
+          pesticides.forEach((p) => {
+            const badge = document.createElement("span");
+            badge.className =
+              "inline-block bg-violet-200 text-violet-800 text-sm font-medium mr-2 mb-2 px-3 py-1 rounded-full";
+            badge.textContent = p;
+            pesticidesList.appendChild(badge);
+          });
+        } else {
+          pesticidesList.innerHTML =
+            '<p class="text-gray-500 italic">Nenhum agrotóxico listado.</p>';
         }
 
-        function updateDashboard(data, title = null) {
-            document.getElementById('dashboard-title').textContent = title ? `Análise do Talhão: ${title}` : 'Visão Geral da Fazenda';
+        // Dados para Gráficos
+        const dataByTalhao = data.reduce((acc, row) => {
+          const talhao = row.Talhao;
+          if (!acc[talhao]) {
+            acc[talhao] = { totalWeight: 0, totalHumidity: 0, count: 0 };
+          }
+          acc[talhao].totalWeight += Number(row.Peso) || 0;
+          acc[talhao].totalHumidity += Number(row.Umidade) || 0;
+          acc[talhao].count++;
+          return acc;
+        }, {});
 
-            if (data.length === 0) {
-                document.getElementById('total-weight').textContent = '0';
-                document.getElementById('avg-humidity').textContent = '0';
-                document.getElementById('pesticides-list').innerHTML = '<p class="text-gray-500 italic">Nenhum dado para exibir.</p>';
-                if(weightChart && humidityChart) updateCharts([], []);
-                return;
-            }
+        const labels = Object.keys(dataByTalhao);
+        const weightData = labels.map((t) => dataByTalhao[t].totalWeight);
+        const humidityData = labels.map((t) =>
+          (dataByTalhao[t].totalHumidity / dataByTalhao[t].count).toFixed(2)
+        );
 
-            // Métricas
-            const totalWeight = data.reduce((sum, row) => sum + (Number(row.Peso) || 0), 0);
-            const totalHumidity = data.reduce((sum, row) => sum + (Number(row.Umidade) || 0), 0);
-            const avgHumidity = data.length > 0 ? (totalHumidity / data.length) : 0;
+        updateCharts(labels, weightData, humidityData);
+      }
 
-            document.getElementById('total-weight').textContent = totalWeight.toLocaleString('pt-BR');
-            document.getElementById('avg-humidity').textContent = avgHumidity.toFixed(2);
-
-            // Lista de Agrotóxicos
-            const pesticides = [...new Set(data.map(row => row.Agrotóxico))];
-            const pesticidesList = document.getElementById('pesticides-list');
-            pesticidesList.innerHTML = '';
-            if (pesticides.length > 0 && pesticides[0] !== undefined) {
-                pesticides.forEach(p => {
-                    const badge = document.createElement('span');
-                    badge.className = 'inline-block bg-violet-200 text-violet-800 text-sm font-medium mr-2 mb-2 px-3 py-1 rounded-full';
-                    badge.textContent = p;
-                    pesticidesList.appendChild(badge);
-                });
-            } else {
-                    pesticidesList.innerHTML = '<p class="text-gray-500 italic">Nenhum agrotóxico listado.</p>';
-            }
-
-            // Dados para Gráficos
-            const dataByTalhao = data.reduce((acc, row) => {
-                const talhao = row.Talhao;
-                if (!acc[talhao]) {
-                    acc[talhao] = { totalWeight: 0, totalHumidity: 0, count: 0 };
-                }
-                acc[talhao].totalWeight += Number(row.Peso) || 0;
-                acc[talhao].totalHumidity += Number(row.Umidade) || 0;
-                acc[talhao].count++;
-                return acc;
-            }, {});
-
-            const labels = Object.keys(dataByTalhao);
-            const weightData = labels.map(t => dataByTalhao[t].totalWeight);
-            const humidityData = labels.map(t => (dataByTalhao[t].totalHumidity / dataByTalhao[t].count).toFixed(2));
-
-            updateCharts(labels, weightData, humidityData);
-        }
-
-        // --- Funções de Gráficos ---
-        function initializeCharts() {
-            const commonOptions = {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: {
-                    y: { beginAtZero: true, grid: { color: '#e5e7eb' } },
-                    x: { grid: { display: false } }
-                }
-            };
-            
-            const weightCtx = document.getElementById('weight-chart').getContext('2d');
-            weightChart = new Chart(weightCtx, {
-                type: 'bar',
-                data: { labels: [], datasets: [{ label: 'Peso (kg)', data: [], backgroundColor: '#8b5cf6', borderRadius: 4 }] },
-                options: commonOptions
-            });
-
-            const humidityCtx = document.getElementById('humidity-chart').getContext('2d');
-            humidityChart = new Chart(humidityCtx, {
-                type: 'bar',
-                data: { labels: [], datasets: [{ label: 'Umidade (%)', data: [], backgroundColor: '#34d399', borderRadius: 4 }] },
-                options: commonOptions
-            });
-        }
-
-        function updateCharts(labels, weightData, humidityData) {
-            if (!weightChart || !humidityChart) return;
-            
-            weightChart.data.labels = labels;
-            weightChart.data.datasets[0].data = weightData;
-            weightChart.update();
-
-            humidityChart.data.labels = labels;
-            humidityChart.data.datasets[0].data = humidityData;
-            humidityChart.update();
-        }
-
-        // --- Inicialização da Aplicação ---
-        window.onload = () => {
-            setupFarmSelector();
-            initializeCharts();
-            updateDashboard([]); // Inicia com o dashboard zerado
+      // --- Funções de Gráficos ---
+      function initializeCharts() {
+        const commonOptions = {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { beginAtZero: true, grid: { color: "#e5e7eb" } },
+            x: { grid: { display: false } },
+          },
         };
+
+        const weightCtx = document
+          .getElementById("weight-chart")
+          .getContext("2d");
+        weightChart = new Chart(weightCtx, {
+          type: "bar",
+          data: {
+            labels: [],
+            datasets: [
+              {
+                label: "Peso (kg)",
+                data: [],
+                backgroundColor: "#8b5cf6",
+                borderRadius: 4,
+              },
+            ],
+          },
+          options: commonOptions,
+        });
+
+        const humidityCtx = document
+          .getElementById("humidity-chart")
+          .getContext("2d");
+        humidityChart = new Chart(humidityCtx, {
+          type: "bar",
+          data: {
+            labels: [],
+            datasets: [
+              {
+                label: "Umidade (%)",
+                data: [],
+                backgroundColor: "#34d399",
+                borderRadius: 4,
+              },
+            ],
+          },
+          options: commonOptions,
+        });
+      }
+
+      function updateCharts(labels, weightData, humidityData) {
+        if (!weightChart || !humidityChart) return;
+
+        weightChart.data.labels = labels;
+        weightChart.data.datasets[0].data = weightData;
+        weightChart.update();
+
+        humidityChart.data.labels = labels;
+        humidityChart.data.datasets[0].data = humidityData;
+        humidityChart.update();
+      }
+
+      // --- Inicialização da Aplicação ---
+      window.onload = () => {
+        setupFarmSelector();
+        initializeCharts();
+        updateDashboard([]); // Inicia com o dashboard zerado
+      };
     </script>
-</body>
+  </body>
 </html>
