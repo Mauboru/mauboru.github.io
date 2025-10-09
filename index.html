@@ -1,378 +1,994 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/tecno.ico">
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/tecno.ico" />
     <title>TecnoMaub | Portfólio Josué Henrique</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-    <link rel="stylesheet" href="css/style-header.css">
-    <link rel="stylesheet" href="css/style-home.css">
-    <link rel="stylesheet" href="css/style-about.css">
-    <link rel="stylesheet" href="css/style-services.css">
-    <link rel="stylesheet" href="css/style-portfolio.css">
-    <link rel="stylesheet" href="css/style-contact.css">
-    <link rel="stylesheet" href="css/style-footer.css">
-    <link rel="stylesheet" href="css/style-responsive.css">
-    <link rel="stylesheet" href="css/style-sysyem.css">
-</head>
-
-<body>
+  <body>
     <header class="header">
-        <a href="#" class="logo">TecnoMaub</a>
-
-        <i class='bx bx-menu' id="menu-icon"></i>
-
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">Sobre</a>
-            <a href="#services">Serviços</a>
-            <a href="#portfolio">Portfólio</a>
-            <a href="#contact">Contato</a>
-        </nav>
+      <a href="#" class="logo">TecnoMaub</a>
+      <i class="bx bx-menu" id="menu-icon"></i>
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <!-- <a href="#about">Sobre</a> -->
+        <a href="#services">Serviços</a>
+        <a href="pages/aulas.html">Aulas</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#contact">Contato</a>
+      </nav>
     </header>
 
-    <!-- home section design ✅ -->
-    <section class="home" id="home">
+    <main>
+      <section class="home" id="home">
         <div class="home-content">
-            <h1>Josué Henrique</h1>
-            <h3>Eu sou um <span class="multiple-text"></span></h3>
-            <p>
-                Sou Josué, um desenvolvedor dedicado a transformar ideias em experiências cativantes.
-                Navegue pelo meu portfólio para explorar uma coleção única de projetos que refletem minha dedicação à inovação, 
-                design e criatividade.
-            </p>
-            <div class="social-media">
-                <a href="https://www.facebook.com/johsrp" target="_blank"><i class='bx bxl-facebook-circle'></i></a>
-                <a href="https://github.com/Mauboru" target="_blank"><i class='bx bxl-github'></i></a>
-                <a href="https://www.linkedin.com/in/josu%C3%A9-henrique-8a56a9192/" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
-                <a href="https://instagram.com/josuas_hr?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"><i class='bx bxl-instagram-alt' ></i></a>
-            </div>
-            <a href="downloads/Josue Henrique - Curriculo.pdf" class="btn" download="Josue Henrique - Curriculo.pdf">Download CV</a>
+          <h1>Josué Henrique</h1>
+          <h3>Eu sou um <span class="multiple-text"></span></h3>
+          <p>
+            Sou Josué, um desenvolvedor dedicado a transformar ideias em
+            experiências cativantes. Navegue pelo meu portfólio para explorar
+            uma coleção única de projetos que refletem minha dedicação à
+            inovação, design e criatividade.
+          </p>
+          <div class="social-media">
+            <a href="https://www.facebook.com/johsrp" target="_blank"
+              ><i class="bx bxl-facebook-circle"></i
+            ></a>
+            <a href="https://github.com/Mauboru" target="_blank"
+              ><i class="bx bxl-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/josu%C3%A9-henrique-8a56a9192/"
+              target="_blank"
+              ><i class="bx bxl-linkedin-square"></i
+            ></a>
+            <a
+              href="https://instagram.com/josuas_hr?igshid=OGQ5ZDc2ODk2ZA=="
+              target="_blank"
+              ><i class="bx bxl-instagram-alt"></i
+            ></a>
+          </div>
+          <a
+            href="downloads/Josue Henrique - Curriculo.pdf"
+            class="btn"
+            download="Josue Henrique - Curriculo.pdf"
+            >Download CV</a
+          >
         </div>
         <div class="home-img">
-            <img src="https://avatars.githubusercontent.com/u/121066937?v=4" alt="">
+          <img
+            src="https://avatars.githubusercontent.com/u/121066937?v=4"
+            alt="Foto de Josué Henrique" />
         </div>
-    </section>
+      </section>
 
-    <!-- about section design ⚠️ -->
-    <section class="about" id="about">
-        <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active text-center">
-                    <img src="images/carrousel/img1.png" class="d-block mx-auto img-fluid fixed-size" alt="">
-                    <span class="d-block mt-2">Apresentação em Iguape/SP no centro da cidade</span>
-                </div>
-                <div class="carousel-item text-center">
-                    <img src="images/carrousel/img2.png" class="d-block mx-auto img-fluid fixed-size" alt="">
-                    <span class="d-block mt-2">Apresentação em Matinhos/PR na Chosen</span>
-                </div>
-                <div class="carousel-item text-center">
-                    <img src="images/carrousel/img3.png" class="d-block mx-auto img-fluid fixed-size" alt="">
-                    <span class="d-block mt-2">Apresentação de TCC em Matinhos/PR na SEPIN</span>
-                </div>
-                <div class="carousel-item text-center">
-                    <img src="images/carrousel/img4.png" class="d-block mx-auto img-fluid fixed-size" alt="">
-                    <span class="d-block mt-2">Viagem em São Paulo/SP em um trem</span>
-                </div>
-            </div>
-        </div> -->
-
-        <div><img src="images/carrousel/img2.png" alt=""></div>
-
+      <!-- <section class="about" id="about">
+        <div>
+          <img
+            src="images/carrousel/img2.png"
+            alt="Apresentação em Matinhos/PR na Chosen" />
+        </div>
         <div class="about-content">
-            <h2 class="heading">Sobre <span>Mim</span></h2>
-            <h3>Violinista e Programador!</h3>
-            <p class="p1">
-                Desde pequeno tive uma paixão muito grande pela música e tecnologia!
-            </p>
-            <p class="p2">
-                Com o passar do tempo fui me especializando nas duas áreas, comecei estudando violão, depois outros instrumentos e então
-                fui para o violino, onde depositei todo meu esforço e dedicação deixando assim de lado os outros instrumentos com o intuito de
-                me profissionalizar.
-            </p>
-            <p class="p3">
-                Me dediquei também a programação, começando com projetos de jogos "Drag and Drop" e então evoluindo para outras 
-                engines e só então as linguagens de programação.
-            </p>
+          <h2 class="heading">Sobre <span>Mim</span></h2>
+          <h3>Violinista e Programador!</h3>
+          <p>
+            Desde pequeno tive uma paixão muito grande pela música e tecnologia!
+            Com o tempo, me especializei em ambas as áreas, começando com violão
+            e evoluindo para o violino, onde dediquei todo o meu esforço para me
+            profissionalizar.
+          </p>
+          <p>
+            Na programação, comecei com projetos de jogos "Drag and Drop" e
+            evoluí para outras engines e linguagens de programação. Minha
+            jornada une criatividade artística e soluções lógicas.
+          </p>
         </div>
-    </section>
+      </section> -->
 
-    <!-- services section design ✅ -->
-    <section class="services" id="services">
+      <section class="services" id="services">
         <h2 class="heading">Meus <span>Serviços</span></h2>
-
         <div class="services-container">
-
-            <div class="services-box">
-                <i class='bx bx-joystick-alt'></i>
-                <div class="game">
-                    <h3>Desenvolvimento de Jogos</h3>
-                    <p>Criação de jogos 2D e 3D, traga sua idéia e deixe a ganhar vida!</p>
-                </div>
-                <a href="#" class="btn">Leia Mais</a>
+          <div class="services-box">
+            <i class="bx bx-joystick-alt"></i>
+            <div class="game">
+              <h3>Desenvolvimento de Jogos</h3>
+              <p>
+                Criação de jogos 2D e 3D. Traga sua ideia e deixe-a ganhar vida!
+              </p>
             </div>
+          </div>
 
-            <div class="services-box">
-                <i class='bx bx-code-alt'></i>
-                <div class="code">
-                    <h3>Desenvolvimento de Sistemas/API</h3>
-                    <p>Criação de sistemas e API usando Js/Ts, Python e PHP</p>
-                </div>
-                <a href="#" class="btn">Leia Mais</a>
+          <div class="services-box">
+            <i class="bx bx-code-alt"></i>
+            <div class="code">
+              <h3>Desenvolvimento de Sistemas/API</h3>
+              <p>
+                Criação de sistemas e APIs usando JavaScript/TypeScript, Python
+                e PHP.
+              </p>
             </div>
+          </div>
 
-            <div class="services-box">
-                <i class='bx bx-code-block'></i>
-                <div class="data">
-                    <h3>Desenvolvimento WEB</h3>
-                    <p>Criação de sites completos em Laravel e React</p>
-                </div>
-                <a href="#" class="btn">Leia Mais</a>
+          <div class="services-box">
+            <i class="bx bx-code-block"></i>
+            <div class="data">
+              <h3>Desenvolvimento WEB</h3>
+              <p>Criação de sites completos em Laravel e React.</p>
             </div>
+          </div>
 
-            <div class="services-box">
-                <i class='bx bxl-android' ></i>
-                <h3>Desenvolvimento de App</h3>
-                <p>Criação de aplicativos Android e IOS utilizando React Native
-                </p>
-                <a href="#" class="btn">Leia Mais</a>
-            </div>
+          <div class="services-box">
+            <i class="bx bxl-android"></i>
+            <h3>Desenvolvimento de App</h3>
+            <p>
+              Criação de aplicativos para Android e iOS utilizando React Native.
+            </p>
+          </div>
 
-            <div class="services-box">
-                <i class='bx bx-signal-3'></i>
-                <div class="power">
-                    <h3>Desenvolvimento de Power BI</h3>
-                    <p>Criação de dashboards com banco de dados e links públicos!</p>
-                </div>
-                <a href="#" class="btn">Leia Mais</a>
+          <div class="services-box">
+            <i class="bx bx-signal-3"></i>
+            <div class="power">
+              <h3>Desenvolvimento de Power BI</h3>
+              <p>Criação de dashboards com banco de dados e links públicos!</p>
             </div>
+          </div>
 
-            <div class="services-box">
-                <i class='bx bx-spreadsheet' ></i>
-                <div class="spreadsheet">
-                    <h3>Desenvolvimento de Planilhas</h3>
-                    <p>Criação de planilhas (online/desktop) com automação.</p>
-                </div>
-                <a href="#" class="btn">Leia Mais</a>
+          <div class="services-box">
+            <i class="bx bx-spreadsheet"></i>
+            <div class="spreadsheet">
+              <h3>Desenvolvimento de Planilhas</h3>
+              <p>Criação de planilhas (online/desktop) com automação.</p>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- portfolio section design ⚠️ -->
-    <section class="portfolio" id="portfolio">
+      <section class="portfolio" id="portfolio">
         <h2 class="heading">Últimos <span>Projetos</span></h2>
         <div class="portfolio-container">
-
-            <!-- SMART HARPIA -->
-            <div class="portfolio-box">
-                <img src="/images/smartharpia.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Site Smart Harpia</h4>
-                    <p>Sistema WEB que desenvolvi para Incubadora (IFPR), tem como objetivo mostrar os dados de todos os prototipos que estão em campo!
-                        Foi desenvolvido utilizando PHP in Laravel, para as APIS utilizei NODE.js, ESP32 com C++ e servidor AWS.
-                    </p>
-                    <a class="anchor" href="http://85.31.63.241:8084/" target="_blank"><i class="bx bx-link-external"></i></a>
-                </div>
+          <div class="portfolio-box">
+            <img src="/images/smartharpia.png" alt="Site Smart Harpia" />
+            <div class="portfolio-layer">
+              <h4>Site Smart Harpia</h4>
+              <p>
+                Sistema WEB que desenvolvi para a Incubadora (IFPR), com o
+                objetivo de mostrar dados de protótipos em campo.
+              </p>
+              <a href="http://85.31.63.241:8084/" target="_blank"
+                ><i class="bx bx-link-external"></i
+              ></a>
             </div>
+          </div>
 
-            <!-- Framework  -->
-            <div class="portfolio-box">
-                <img src="/images/Infotech.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Framework - Infotech Soluções</h4>
-                    <p>Criação do Sistema web migrado de um sistema desktop da empresa.</p>
-                    <a class="anchor" href="https://fw.infotech-solucoes.com/" target="_blank"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div>  
-
-            <!-- Serra do Mar  -->
-            <div class="portfolio-box">
-                <img src="/images/serradomar.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Grandes Mamiferos Serra do Mar</h4>
-                    <p>Criação de Sistema para controle de acessos e usuarios ao dashboard.</p>
-                    <a class="anchor" href="https://grandesmamiferos.tecnomaub.site/" target="_blank"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div> 
-            
-            <!-- Diaria Aqui  -->
-            <div class="portfolio-box">
-                <img src="/images/diariaaqui.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Diaria Aqui</h4>
-                    <p>Criação de aplicativo para gerenciamento de serviços do cotidiano da comunidade, feito para 
-                        contratação e divulgação dos mesmos.</p>
-                    <a href="downloads/diariaaqui.apk" download="diariaaqui.apk" class="download-btn">
-                        Baixar APK
-                    </a>
-                </div>
+          <div class="portfolio-box">
+            <img src="/images/Infotech.png" alt="Framework Infotech" />
+            <div class="portfolio-layer">
+              <h4>Framework - Infotech Soluções</h4>
+              <p>
+                Criação do sistema web migrado de um sistema desktop da empresa.
+              </p>
+              <a href="https://fw.infotech-solucoes.com/" target="_blank"
+                ><i class="bx bx-link-external"></i
+              ></a>
             </div>
+          </div>
 
-            <!-- EcoGuardioes -->
-            <div class="portfolio-box">
-                <img src="/images/eco.jpg" alt="Eco-Guardiões">
-                <div class="portfolio-layer">
-                    <h4>Eco-Guardiões</h4>
-                    <p>Jogo criado através do GMS2 com o intuito de educação de crianças do Fundamental I do litoral paranaense. 
-                       O projeto recebeu o primeiro lugar no Hackathon 2023 da IFPR!</p>
-            
-                    <div class="portfolio-links">
-                        <a class="anchor" href="https://gx.games/pt-br/games/gg8xv5/eco-guardioes/" target="_blank">
-                            <i class="bx bx-link-external"></i>
-                        </a>
-                        <a href="downloads/EcoGuardioes.apk" download="EcoGuardioes.apk" class="download-btn">
-                            Baixar APK
-                        </a>
-                    </div>
-                </div>
-            </div>            
-
-            <!-- Gatunonimbus -->
-            <!-- <div class="portfolio-box">
-                <img src="/images/gato.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Gatunonimbus</h4>
-                    <p>Jogo criado através do GMS2 em apenas poucos dias para uma GAME JAM da qual ficamos em 3° Lugar!
-                    </p>
-                    <a class="anchor" href="https://gx.games/pt-br/games/z40nrh/gatunonimbus/" target="_blank"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div> -->
-
-            <!-- Isolat -->
-            <!-- <div class="portfolio-box">
-                <img src="/images/isolat.jpeg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Isolat</h4>
-                    <p>Jogo em desenvolvimento, feito em 6 dias para uma Game Jam no ano de 2022!
-                    </p>
-                    <a class="anchor" href="https://gx.games/games/ntgo6w/isolat/" target="_blank"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div> -->
-
-            <!-- Zenko em busca do poder -->
-            <!-- <div class="portfolio-box">
-                <img src="/images/zenko.jpeg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Zenko - em busca do poder</h4>
-                    <p>Protótipo de uma idéia de um jogo Metroidvania sobre uma raposa samurai!
-                    </p>
-                    <a class="anchor" href="https://gx.games/games/xau367/zenko-em-busca-do-poder/" target="_blank"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div> -->
-
-            <!-- Jogos Olimpicos -->
-            <!-- <div class="portfolio-box">
-                <img src="/images/olimpico.jpeg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Jogos Olimpicos</h4>
-                    <p>Jogo desenvolvido para uma Game Jam, ficou incompleto!
-                    </p>
-                    <a class="anchor" href="https://gx.games/games/tx93o1/jogos-olimpicos/tracks/27c3dfb7-c04e-4ab4-bdab-dda421a2cec9/" target="_blank"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div> -->
-
-            <!-- Oraculo -->
-            <div class="portfolio-box">
-                <img src="https://www.oficinadanet.com.br/imagens/post_categoria/2676/ia.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Sistema Oráculo</h4>
-                    <p>Participação em projeto de assistente virtual feito em Python</p>
-                    <a class="anchor" href="https://github.com/Mauboru/VirtualEyes" target="_blank"><i class="bx bx-link-external"></i></a>
-                </div>
+          <div class="portfolio-box">
+            <img
+              src="/images/serradomar.jpg"
+              alt="Grandes Mamíferos Serra do Mar" />
+            <div class="portfolio-layer">
+              <h4>Grandes Mamíferos Serra do Mar</h4>
+              <p>
+                Criação de sistema para controle de acessos e usuários ao
+                dashboard.
+              </p>
+              <a href="https://grandesmamiferos.tecnomaub.site/" target="_blank"
+                ><i class="bx bx-link-external"></i
+              ></a>
             </div>
+          </div>
 
-            <!-- Cetáceos -->
-            <div class="portfolio-box">
-                <img src="/images/Power-BI.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Medidor de Cetáceos</h4>
-                    <p>Criação do Power BI com dados de encalhe de cetáceos.</p>
-                    <a class="anchor" href="https://app.powerbi.com/view?r=eyJrIjoiNjY1Y2I1MDctNWRlYy00ODkwLWEwYTItMTZlZmVkZTVhNjRmIiwidCI6ImI0OTA2OGJkLTFhODgtNDlmNy04NmMyLTc3ZWE2YjMyM2FlYiJ9&pageName=ReportSection" target="_blank"><i class="bx bx-link-external"></i></a>
-                </div>
+          <div class="portfolio-box">
+            <img src="/images/diariaaqui.png" alt="Diaria Aqui" />
+            <div class="portfolio-layer">
+              <h4>Diaria Aqui</h4>
+              <p>
+                Aplicativo para gerenciamento de serviços, focado em contratação
+                e divulgação.
+              </p>
+              <a
+                href="downloads/diariaaqui.apk"
+                download="diariaaqui.apk"
+                class="download-btn"
+                >Baixar APK</a
+              >
             </div>
+          </div>
 
-            <!-- Águas estuarinas -->
-            <div class="portfolio-box">
-                <img src="/images/Power-BI.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Medidor Águas Estuarinas</h4>
-                    <p>Criação do Power BI com dados de água da empresa TCP.</p>
-                    <a class="anchor" href="https://app.powerbi.com/view?r=eyJrIjoiNmQwMGQ5MzMtYjA3Zi00OGVlLWIzOWEtMjYxY2JkMDE4MmRkIiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9" target="_blank"><i class="bx bx-link-external"></i></a>
-                </div>
+          <div class="portfolio-box">
+            <img src="/images/eco.jpg" alt="Eco-Guardiões" />
+            <div class="portfolio-layer">
+              <h4>Eco-Guardiões</h4>
+              <p>
+                Jogo educativo feito com GMS2, vencedor do Hackathon 2023 da
+                IFPR.
+              </p>
+              <a
+                href="https://gx.games/pt-br/games/gg8xv5/eco-guardioes/"
+                target="_blank"
+                ><i class="bx bx-link-external"></i
+              ></a>
+              <a
+                href="downloads/EcoGuardioes.apk"
+                download="EcoGuardioes.apk"
+                class="download-btn"
+                >Baixar APK</a
+              >
             </div>
+          </div>
 
-            <!-- Monitoramento de PH -->
-            <div class="portfolio-box">
-                <img src="/images/Power-BI.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Medidor de PH</h4>
-                    <p>Criação do Power BI com dados de água da empresa Águas Paranaguá.</p>
-                    <a class="anchor" href="https://app.powerbi.com/view?r=eyJrIjoiZjY2NTZiYzgtNWQ1My00NjgxLTgxMGMtMjI5NDMxZTZhMWU1IiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9" target="_blank"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div>  
+          <div class="portfolio-box">
+            <img
+              src="https://www.oficinadanet.com.br/imagens/post_categoria/2676/ia.jpg"
+              alt="Sistema Oráculo" />
+            <div class="portfolio-layer">
+              <h4>Sistema Oráculo</h4>
+              <p>
+                Participação em projeto de assistente virtual feito em Python.
+              </p>
+              <a href="https://github.com/Mauboru/VirtualEyes" target="_blank"
+                ><i class="bx bx-link-external"></i
+              ></a>
+            </div>
+          </div>
 
-            <!-- Painel de Lesgilacao -->
-            <div class="portfolio-box">
-                <img src="/images/Power-BI.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Mapa Gestão de Risco Paranaguá</h4>
-                    <p>Criação do Power BI com dados de leis.</p>
-                    <a class="anchor" href="https://app.powerbi.com/view?r=eyJrIjoiMmI5MjM0NDgtNDZlOC00YTcwLWJiMzUtNDc1MTkwNmUyMTA3IiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9" target="_blank"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div>  
+          <!-- <div class="portfolio-box">
+            <img src="/images/Power-BI.png" alt="Medidor de Cetáceos" />
+            <div class="portfolio-layer">
+              <h4>Medidor de Cetáceos</h4>
+              <p>Power BI com dados de encalhe de cetáceos.</p>
+              <a
+                href="https://app.powerbi.com/view?r=eyJrIjoiNjY1Y2I1MDctNWRlYy00ODkwLWEwYTItMTZlZmVkZTVhNjRmIiwidCI6ImI0OTA2OGJkLTFhODgtNDlmNy04NmMyLTc3ZWE2YjMyM2FlYiJ9&pageName=ReportSection"
+                target="_blank"
+                ><i class="bx bx-link-external"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="portfolio-box">
+            <img src="/images/Power-BI.png" alt="Medidor Águas Estuarinas" />
+            <div class="portfolio-layer">
+              <h4>Medidor Águas Estuarinas</h4>
+              <p>Power BI com dados de água da empresa TCP.</p>
+              <a
+                href="https://app.powerbi.com/view?r=eyJrIjoiNmQwMGQ5MzMtYjA3Zi00OGVlLWIzOWEtMjYxY2JkMDE4MmRkIiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9"
+                target="_blank"
+                ><i class="bx bx-link-external"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="portfolio-box">
+            <img src="/images/Power-BI.png" alt="Medidor de PH" />
+            <div class="portfolio-layer">
+              <h4>Medidor de PH</h4>
+              <p>Power BI com dados de água da empresa Águas Paranaguá.</p>
+              <a
+                href="https://app.powerbi.com/view?r=eyJrIjoiZjY2NTZiYzgtNWQ1My00NjgxLTgxMGMtMjI5NDMxZTZhMWU1IiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9"
+                target="_blank"
+                ><i class="bx bx-link-external"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="portfolio-box">
+            <img
+              src="/images/Power-BI.png"
+              alt="Mapa Gestão de Risco Paranaguá" />
+            <div class="portfolio-layer">
+              <h4>Mapa Gestão de Risco Paranaguá</h4>
+              <p>Power BI com dados de leis.</p>
+              <a
+                href="https://app.powerbi.com/view?r=eyJrIjoiMmI5MjM0NDgtNDZlOC00YTcwLWJiMzUtNDc1MTkwNmUyMTA3IiwidCI6IjBlMzkyZmY3LTU5ZjktNGE0OS04NTZmLTdkM2I4YWM4YTUxYSJ9"
+                target="_blank"
+                ><i class="bx bx-link-external"></i
+              ></a>
+            </div>
+          </div> -->
         </div>
-    </section>
+      </section>
 
-    <!-- sistemas e links design ✅ -->
-    <section class="systems" id="systems">
+      <section class="systems" id="systems">
         <h2 class="heading">Status dos <span>Sistemas</span></h2>
         <div id="systems-container" class="systems-container"></div>
-    </section>
+      </section>
 
-    <!-- contact section desig ⚠️ -->
-    <section class="contact" id="contact">
+      <section class="contact" id="contact">
         <h2 class="heading">Fale <span>Comigo!</span></h2>
-        <form id="contactForm">
-            <div class="input-box">
-                <input name="fullName" type="text" placeholder="Nome Completo" required>
-                <input name="email" type="email" placeholder="Endereço de Email" required>
-            </div>
-            <div class="input-box">
-                <input name="phoneNumber" type="tel" placeholder="Número de Telefone" required>
-                <input name="emailSubject" type="text" placeholder="Assunto do Email" required>
-            </div>
-            <textarea name="message" cols="30" rows="10" placeholder="Sua Mensagem" required></textarea>
-            <button type="button" id="sendEmailButton" class="btn">Enviar Mensagem</button>
+        <form
+          id="contactForm"
+          action="https://formspree.io/f/your_form_id"
+          method="POST">
+          <div class="input-box">
+            <input
+              name="fullName"
+              type="text"
+              placeholder="Nome Completo"
+              required />
+            <input
+              name="email"
+              type="email"
+              placeholder="Endereço de Email"
+              required />
+          </div>
+          <div class="input-box">
+            <input
+              name="phoneNumber"
+              type="tel"
+              placeholder="Número de Telefone"
+              required />
+            <input
+              name="emailSubject"
+              type="text"
+              placeholder="Assunto do Email"
+              required />
+          </div>
+          <textarea
+            name="message"
+            cols="30"
+            rows="10"
+            placeholder="Sua Mensagem"
+            required></textarea>
+          <button type="submit" class="btn">Enviar Mensagem</button>
         </form>
-    </section>
+      </section>
+    </main>
 
-    <!-- footer design ✅ -->
     <footer class="footer">
-        <div class="footer-text">
-            <p>Copyright &copy; 2023 by TecnoMaub | All Rights Reserved.</p>
-        </div>
-
-        <div class="footer-iconTop">
-            <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
-        </div>
+      <div class="footer-text">
+        <p>Copyright &copy; 2023 by TecnoMaub | All Rights Reserved.</p>
+      </div>
+      <div class="footer-iconTop">
+        <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+      </div>
     </footer>
 
-    <!-- scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!-- typed js -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-    <!-- Custom script -->
     <script src="js/script.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
-</body>
+  </body>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    :root {
+      --bg-color: #1f242d;
+      --second-bg-color: #323946;
+      --text-color: #fff;
+      --main-color: #0ef;
+    }
+
+    html {
+      font-size: 62.5%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 10rem 9% 2rem;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem 9%;
+      background: var(--bg-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .header.sticky {
+      border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      font-size: 3.5rem;
+      color: var(--text-color);
+      font-weight: 600;
+      cursor: default;
+      text-decoration: none;
+    }
+
+    .navbar a {
+      font-size: 1.7rem;
+      color: var(--text-color);
+      font-weight: 500;
+      margin-left: 4rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      color: var(--main-color);
+    }
+
+    #menu-icon {
+      font-size: 3.6rem;
+      color: var(--text-color);
+      display: none;
+    }
+
+    .home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .home-content h3 {
+      font-size: 3.2rem;
+      font-weight: 700;
+    }
+
+    .home-content h3:nth-of-type(2) {
+      margin-bottom: 2rem;
+    }
+
+    span {
+      color: var(--main-color);
+    }
+
+    .home-content h1 {
+      font-size: 5.6rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    /* Alterações para a imagem circular */
+    .home-img img {
+      width: 25vw;
+      height: 25vw; /* Garante que a altura seja igual à largura para um círculo perfeito */
+      object-fit: cover; /* Recorta a imagem para preencher o círculo sem distorcer */
+      border-radius: 50%; /* Torna a imagem circular */
+      animation: floatImage 4s ease-in-out infinite;
+      border: 0.5rem solid var(--main-color); /* Adiciona uma borda para destaque */
+      box-shadow: 0 0 2rem var(--main-color); /* Adiciona sombra para um efeito flutuante */
+    }
+
+    @keyframes floatImage {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-2.4rem);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .home-content p {
+      font-size: 1.6rem;
+    }
+
+    .social-media a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 4rem;
+      height: 4rem;
+      background: transparent;
+      border: 0.2rem solid var(--main-color);
+      border-radius: 50%;
+      font-size: 2rem;
+      color: var(--main-color);
+      margin: 3rem 1.5rem 3rem 0;
+      transition: 0.5s ease;
+      text-decoration: none;
+    }
+
+    .social-media a:hover {
+      background: var(--main-color);
+      color: var(--second-bg-color);
+      box-shadow: 0 0 1rem var(--main-color);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.8rem;
+      background: var(--main-color);
+      border-radius: 4rem;
+      box-shadow: 0 0 1rem var(--main-color);
+      font-size: 1.6rem;
+      color: var(--second-bg-color);
+      letter-spacing: 0.1rem;
+      font-weight: 600;
+      transition: 0.5s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      box-shadow: none;
+    }
+
+    .about {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      background: var(--second-bg-color);
+    }
+
+    .about img {
+      width: 35vw;
+    }
+
+    .heading {
+      text-align: center;
+      font-size: 4.5rem;
+    }
+
+    .about-content h2 {
+      text-align: left;
+      line-height: 1.2;
+    }
+
+    .about-content h3 {
+      font-size: 2.6rem;
+    }
+
+    .about-content p {
+      font-size: 1.6rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .services h2 {
+      margin-bottom: 5rem;
+    }
+
+    .services-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .services-container .services-box {
+      flex: 1 1 30rem;
+      background: var(--second-bg-color);
+      padding: 3rem 2rem 4rem;
+      border-radius: 2rem;
+      text-align: center;
+      border: 0.2rem solid var(--bg-color);
+      transition: 0.5s ease;
+    }
+
+    .services-container .services-box:hover {
+      border-color: var(--main-color);
+      transform: scale(1.02);
+    }
+
+    .services-box i {
+      font-size: 7rem;
+      color: var(--main-color);
+    }
+
+    .services-box h3 {
+      font-size: 2.6rem;
+    }
+
+    .services-box p {
+      font-size: 1.6rem;
+      margin: 1rem 0 3rem;
+    }
+
+    .portfolio {
+      background: var(--second-bg-color);
+    }
+
+    .portfolio h2 {
+      margin-bottom: 4rem;
+    }
+
+    .portfolio-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .portfolio-container .portfolio-box {
+      position: relative;
+      border-radius: 2rem;
+      box-shadow: 0 0 1rem var(--bg-color);
+      overflow: hidden;
+      display: flex;
+    }
+
+    .portfolio-box img {
+      width: 100%;
+      transition: 0.5s ease;
+      height: 100%;
+    }
+
+    .portfolio-box:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-box .portfolio-layer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.1), var(--main-color));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 0 4rem;
+      transform: translateY(100%);
+      transition: 0.5s ease;
+    }
+
+    .portfolio-box:hover .portfolio-layer {
+      transform: translateY(0);
+    }
+
+    .portfolio-layer h4 {
+      font-size: 3rem;
+    }
+
+    .portfolio-layer p {
+      font-size: 1.6rem;
+      margin: 0.3rem 0 1rem;
+    }
+
+    .portfolio-layer a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 5rem;
+      height: 5rem;
+      background: var(--text-color);
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .portfolio-layer a i {
+      font-size: 2rem;
+      color: var(--second-bg-color);
+    }
+
+    .portfolio-layer .download-btn {
+      margin-top: 1rem;
+      padding: 1rem 2rem;
+      background: var(--text-color);
+      color: var(--second-bg-color);
+      border-radius: 2rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .contact h2 {
+      margin-bottom: 3rem;
+    }
+
+    .contact form {
+      max-width: 70rem;
+      margin: 1rem auto;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .contact form .input-box {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .contact form .input-box input,
+    .contact form textarea {
+      width: 100%;
+      padding: 1.5rem;
+      font-size: 1.6rem;
+      color: var(--text-color);
+      background: var(--second-bg-color);
+      border-radius: 0.8rem;
+      margin: 0.7rem 0;
+      border: none;
+    }
+
+    .contact form .input-box input {
+      width: 49%;
+    }
+
+    .contact form textarea {
+      resize: none;
+    }
+
+    .contact form .btn {
+      margin-top: 2rem;
+      cursor: pointer;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 2rem 9%;
+      background: var(--second-bg-color);
+    }
+
+    .footer-text p {
+      font-size: 1.6rem;
+    }
+
+    .footer-iconTop a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.8rem;
+      background: var(--main-color);
+      border-radius: 0.8rem;
+      transition: 0.5s ease;
+      text-decoration: none;
+    }
+
+    .footer-iconTop a:hover {
+      box-shadow: 0 0 1rem var(--main-color);
+    }
+
+    .footer-iconTop a i {
+      font-size: 2.4rem;
+      color: var(--second-bg-color);
+    }
+
+    .systems-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .system-card {
+      background: var(--second-bg-color);
+      border-radius: 1rem;
+      padding: 2rem;
+      width: 15rem;
+      text-align: center;
+      border: 0.1rem solid var(--main-color);
+      transition: transform 0.3s ease;
+    }
+
+    .system-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .system-card a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .system-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+
+    .system-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .system-status {
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .system-online {
+      background-color: #0ef;
+      color: var(--bg-color);
+    }
+
+    .system-offline {
+      background-color: #dc3545;
+      color: #fff;
+    }
+
+    @media (max-width: 1200px) {
+      html {
+        font-size: 55%;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .header {
+        padding: 2rem 3%;
+      }
+
+      section {
+        padding: 10rem 3% 2rem;
+      }
+
+      .services {
+        padding-bottom: 7rem;
+      }
+
+      .portfolio {
+        padding-bottom: 7rem;
+      }
+
+      .contact {
+        min-height: auto;
+      }
+
+      .footer {
+        padding: 2rem 3%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #menu-icon {
+        display: block;
+      }
+
+      .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: var(--bg-color);
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+        display: none;
+      }
+
+      .navbar.active {
+        display: block;
+      }
+
+      .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+      }
+
+      .home {
+        flex-direction: column;
+      }
+
+      .home-content h3 {
+        font-size: 2.6rem;
+      }
+
+      .home-content h1 {
+        font-size: 5rem;
+      }
+
+      .home-content {
+        order: 2;
+      }
+
+      .home-img {
+        width: 70vw;
+        height: 70vw; /* Adicionado para responsividade */
+        margin-top: 4rem;
+      }
+
+      .home-img img {
+        width: 100%;
+        height: 100%; /* Garante que a imagem preencha o container circular */
+      }
+
+      .about {
+        flex-direction: column-reverse;
+      }
+
+      .about img {
+        width: 70vw;
+        margin-top: 4rem;
+      }
+
+      .services h2 {
+        margin-bottom: 3rem;
+      }
+
+      .portfolio h2 {
+        margin-bottom: 3rem;
+      }
+
+      .portfolio-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 617px) {
+      .portfolio-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 450px) {
+      html {
+        font-size: 50%;
+      }
+
+      .contact form .input-box input {
+        width: 100%;
+      }
+
+      .home-img {
+        /* Ajustado para telas menores */
+        width: 60vw;
+        height: 60vw;
+      }
+
+      .about img {
+        width: 90vw;
+      }
+
+      .about-content h3 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 365px) {
+      .home-img {
+        /* Ajustado para as menores telas */
+        width: 70vw;
+        height: 70vw;
+      }
+
+      .about img {
+        width: 90vw;
+      }
+
+      .footer {
+        flex-direction: column-reverse;
+      }
+
+      .footer p {
+        text-align: center;
+        margin-top: 2rem;
+      }
+    }
+  </style>
 </html>
