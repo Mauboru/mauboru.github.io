@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Matéria - Pokémon Companion</title>
+    <title>Matéria</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -60,6 +60,17 @@
         padding: 2rem;
       }
 
+      .flex-container {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: nowrap;
+      }
+
+      .flex-item {
+        flex: 1 1 48%;
+        min-width: 300px;
+      }
+
       section.section {
         background-color: var(--light);
         border: 1px solid var(--border);
@@ -113,6 +124,7 @@
         border: none;
         cursor: pointer;
       }
+
       button:hover {
         opacity: 0.9;
       }
@@ -173,6 +185,7 @@
         height: 140px;
         object-fit: contain;
       }
+
       .xp-bar {
         background-color: #ddd;
         border-radius: 10px;
@@ -180,11 +193,62 @@
         height: 10px;
         margin: 0.5rem 0;
       }
+
       .xp-fill {
         height: 100%;
         background-color: var(--secondary);
         width: 0%;
         transition: width 0.3s ease;
+      }
+
+      /* Plano de aula linhas */
+      .plano-line {
+        padding: 0.3rem 0.5rem;
+        border-radius: 5px;
+      }
+
+      .plano-line.today {
+        background-color: var(--secondary);
+        color: white;
+        font-weight: bold;
+      }
+
+      /* Ajuste do iframe */
+      #chamada-content iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+      }
+      /* Cards de atividades */
+      .atividade-card {
+        background: #eef1f5;
+        border-left: 4px solid var(--secondary);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        box-shadow: var(--shadow);
+        transition: transform 0.2s ease;
+      }
+
+      .atividade-card:hover {
+        transform: translateY(-3px);
+      }
+
+      .atividade-card h3 {
+        margin: 0 0 0.3rem 0;
+        font-size: 1rem;
+        color: var(--secondary);
+      }
+
+      .atividade-card .data {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 0.5rem;
+      }
+
+      .atividade-card p {
+        margin: 0;
+        font-size: 0.9rem;
       }
     </style>
   </head>
@@ -197,21 +261,21 @@
     </header>
 
     <div class="container">
-      <!-- Plano de Aula -->
-      <section class="section">
-        <h2><i class="fa-solid fa-chalkboard"></i> Plano de Aula</h2>
-        <div id="plano-aula-content" class="empty">
-          Nenhum plano de aula disponível.
-        </div>
-      </section>
+      <div class="flex-container">
+        <section class="section flex-item">
+          <h2><i class="fa-solid fa-chalkboard"></i> Plano de Aula</h2>
+          <div id="plano-aula-content" class="empty">
+            Nenhum plano de aula disponível.
+          </div>
+        </section>
 
-      <!-- Chamada -->
-      <section class="section">
-        <h2><i class="fa-solid fa-list-check"></i> Chamada</h2>
-        <div id="chamada-content" class="empty">
-          Nenhuma informação de chamada disponível.
-        </div>
-      </section>
+        <section class="section flex-item">
+          <h2><i class="fa-solid fa-list-check"></i> Chamada</h2>
+          <div id="chamada-content" class="empty">
+            Nenhuma informação de chamada disponível.
+          </div>
+        </section>
+      </div>
 
       <!-- Atividades -->
       <section class="section">
@@ -259,17 +323,17 @@
 
     <script>
       const params = new URLSearchParams(window.location.search);
-      const materiaKey = params.get("materia") || "geral";
+      const materiaKeyRaw = params.get("materia") || "geral";
+      const materiaKey = materiaKeyRaw.replace(/[^a-zA-Z0-9_-]/g, "_");
       const storageKey = `pokemon_${materiaKey}`;
 
       const title = document.getElementById("materia-titulo");
-      title.textContent = materiaKey.replace(/\./g, " ");
+      title.textContent = materiaKeyRaw.replace(/\./g, " ");
 
       // Pokémon
-      let pokemonData = null;
-      let xp = 0;
-      let xpToEvolve = 100;
-
+      let pokemonData = null,
+        xp = 0,
+        xpToEvolve = 100;
       const icon = document.getElementById("pokemon-icon");
       const modal = document.getElementById("pokemon-modal");
       const display = document.getElementById("pokemon-display");
@@ -277,11 +341,8 @@
       const chooseBtn = document.getElementById("choose-pokemon");
       const resetBtn = document.getElementById("reset-pokemon");
 
-      // Abrir modal
-      icon.addEventListener("click", () => {
-        modal.style.display = "flex";
-      });
-      // Fechar modal
+      // Modal
+      icon.addEventListener("click", () => (modal.style.display = "flex"));
       modal.addEventListener("click", (e) => {
         if (e.target === modal) modal.style.display = "none";
       });
@@ -304,23 +365,22 @@
       function renderPokemon(poke) {
         display.classList.remove("empty");
         display.innerHTML = `
-    <div class="pokemon-box">
-      <div class="pokemon-info">
-        <h3>${poke.name.toUpperCase()}</h3>
-        <p><strong>Tipo:</strong> ${poke.types
-          .map((t) => t.type.name)
-          .join(", ")}</p>
-        <p><strong>XP:</strong> <span id="xp-value">${xp}</span> / ${xpToEvolve}</p>
-        <div class="xp-bar"><div class="xp-fill" id="xp-bar-fill" style="width:${
-          (xp / xpToEvolve) * 100
-        }%"></div></div>
-        <button id="gain-xp">Ganhar XP</button>
-      </div>
-      <img src="${poke.sprites.front_default}" alt="${
+        <div class="pokemon-box">
+          <div class="pokemon-info">
+            <h3>${poke.name.toUpperCase()}</h3>
+            <p><strong>Tipo:</strong> ${poke.types
+              .map((t) => t.type.name)
+              .join(", ")}</p>
+            <p><strong>XP:</strong> <span id="xp-value">${xp}</span> / ${xpToEvolve}</p>
+            <div class="xp-bar"><div class="xp-fill" id="xp-bar-fill" style="width:${
+              (xp / xpToEvolve) * 100
+            }%"></div></div>
+            <button id="gain-xp">Ganhar XP</button>
+          </div>
+          <img src="${poke.sprites.front_default}" alt="${
           poke.name
         }" class="pokemon-img">
-    </div>
-  `;
+        </div>`;
         document.getElementById("gain-xp").addEventListener("click", gainXP);
         resetBtn.style.display = "inline-block";
       }
@@ -334,11 +394,8 @@
 
       function gainXP() {
         xp += 20;
-        if (xp >= xpToEvolve) {
-          evolvePokemon();
-        } else {
-          updateXPBar();
-        }
+        if (xp >= xpToEvolve) evolvePokemon();
+        else updateXPBar();
       }
 
       async function evolvePokemon() {
@@ -395,6 +452,92 @@
         resetBtn.style.display = "none";
       });
 
+      async function loadMateria() {
+        try {
+          const res = await fetch(`../json/${materiaKey}.json`);
+          if (!res.ok) throw new Error("JSON da matéria não encontrado");
+          const data = await res.json();
+
+          // Plano de Aula
+          const planoContent = document.getElementById("plano-aula-content");
+          planoContent.innerHTML = "";
+          if (data.plano) {
+            planoContent.classList.remove("empty");
+            const lines = data.plano.split("\n");
+            const todayStr = new Date().toLocaleDateString("pt-BR", {
+              day: "2-digit",
+              month: "2-digit",
+            });
+            lines.forEach((line) => {
+              const div = document.createElement("div");
+              div.classList.add("plano-line");
+              if (line.startsWith(todayStr)) div.classList.add("today");
+              div.textContent = line;
+              planoContent.appendChild(div);
+            });
+          } else {
+            planoContent.classList.add("empty");
+            planoContent.textContent = "Nenhum plano de aula disponível.";
+          }
+
+          // Chamada
+          const chamadaContent = document.getElementById("chamada-content");
+          if (data.chamada) {
+            chamadaContent.classList.remove("empty");
+            chamadaContent.innerHTML = data.chamada;
+            const iframe = chamadaContent.querySelector("iframe");
+            if (iframe) {
+              iframe.style.width = "100%";
+              iframe.style.height = "800px";
+            }
+          } else {
+            chamadaContent.classList.add("empty");
+            chamadaContent.textContent =
+              "Nenhuma informação de chamada disponível.";
+          }
+
+          // Aulas
+          const aulasList = document.getElementById("aulas-list");
+          aulasList.innerHTML = "";
+          if (Array.isArray(data.aula) && data.aula.length > 0) {
+            data.aula.forEach((item) => {
+              const li = document.createElement("li");
+              li.innerHTML = `<a href="${item.conteudo}" target="_blank">${item.titulo}</a>`;
+              aulasList.appendChild(li);
+            });
+          } else {
+            const li = document.createElement("li");
+            li.classList.add("empty");
+            li.textContent = "Nenhuma aula disponível.";
+            aulasList.appendChild(li);
+          }
+
+          // Atividades
+          const atividadesList = document.getElementById("atividades-list");
+          atividadesList.innerHTML = "";
+          if (Array.isArray(data.aula) && data.aula.length > 0) {
+            data.aula.forEach((item) => {
+              const card = document.createElement("div");
+              card.classList.add("atividade-card");
+              card.innerHTML = `
+      <h3>${item.atividades}</h3>
+      <div class="data">Data: ${item.data}</div>
+      <p>${item.descricao}</p>
+    `;
+              atividadesList.appendChild(card);
+            });
+          } else {
+            const li = document.createElement("li");
+            li.classList.add("empty");
+            li.textContent = "Nenhuma atividade cadastrada.";
+            atividadesList.appendChild(li);
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      }
+
+      loadMateria();
       loadFromStorage();
     </script>
   </body>
