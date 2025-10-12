@@ -1,0 +1,13 @@
+{
+  "plano": "12/08/2025 Apresentação do componente; Principais Conceitos.\n19/08/2025 Introdução ao HTML, conceitos iniciais e estrutura.\n26/08/2025 Trabalhando com tabelas HTML\n02/09/2025 Tabelas e Formulários HTML\n09/09/2025 Mapeamento de Imagens e Introdução ao CSS - Propriedades de Formatação\n16/09/2025 Grupos de Propriedades CSS\n23/09/2025 Box Model e Posicionamento de elementos na tela - Position\n30/09/2025 Avaliação\n07/10/2025 FERIADO\n14/10/2025 Flexbox e Grid Layout\n21/10/2025 Media queries e Interfaces responsivas\n28/10/2025 Introdução a Frameworks/Bibliotecas\n04/11/2025 Uso básico de Bootstrap\n11/11/2025 Programação Client-side com JavaScript - Sintaxe básica e variáveis\n18/11/2025 Programação Client-side com JavaScript - Manipulação de DOM\n25/11/2025 Avaliação\n02/12/2025 Programação Client-side com JavaScript - Tratamento de eventos\n09/12/2025 Revisão\n16/12/2025 Recuperação",
+  "chamada": "<iframe src='https://docs.google.com/spreadsheets/d/e/2PACX-1vTjgoX09EGWkfAVGNW6ngKwL1K1NYs_SQO6V0HBZCocIAlkd9HnKSDZbyUlV0YQfBCTOnEltlI2795m/pubhtml?gid=895845876&amp;single=true&amp;widget=true&amp;headers=false'></iframe>",
+  "aula": [
+    {
+      "titulo": "Apresentação do Professor Novo / Introdução a Flexbox e Grid Layout",
+      "atividades": "Exercício Flex/Grid",
+      "descricao": "recriar uma tela igual a do professor utilizando o que aprendeu na aula",
+      "data": "14/10/2025",
+      "conteudo": "https://docs.google.com/presentation/d/e/2PACX-1vSxebcAkKJa55ZurE4fGSwdzDK0s0zy9pc4Winp4Gnupv1J58pZTUzfXRxrdfxNPWwuMp5zHzMM1Qg2/pub?start=false&loop=false&delayms=3000"
+    }
+  ]
+}
