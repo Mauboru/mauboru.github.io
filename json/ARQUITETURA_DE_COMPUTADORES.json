@@ -1,5 +1,5 @@
 {
-  "plano": "14/03/2025 Apresentação do Plano de Trabalho - Conceitos Iniciais de OAC\n21/03/2025 Hardware , Software, Sistemas e Arquiteturas\n28/03/2025 História do computador e Conceitos Fundamentais\n04/04/2025 Hierarquia de Níveis - Modelo Von Neumman\n11/04/2025 Componentes do Computador: Processador\n25/04/2025 Componentes do Computador: Memórias e Periféricos\n09/05/2025 Representação de Dados Computacionais\n16/05/2025 Sistemas de Numeração\n23/05/2025 Exercícios e Avaliação\n24/05/2025 Reunião de Pais\n30/05/2025 Avaliação - Publicação dos resultados\n06/06/2025 Revisão de Conteúdo\n13/06/2025 Tabela ASCII\n27/06/2025 MOVE IFPR 2022\n04/07/2025 Álgebra Booleana\n05/07/2025 Semana Arte e Cultura\n11/07/2025 Lógica Digital\n18/07/2025 Exercícios Lógica Digital/ Avaliação\n19/07/2025 Festival de Musica\n15/08/2025 Funções Booleanas\n22/08/2025 Exercícios Álgebra Booleana\n29/08/2025 Exemplos de Arquiteturas Reais – Intel 8086\n05/09/2025 Memória / Tipos de Memória\n12/09/2025 Processamento de Instruções\n19/09/2025 Arquiteturas Alternativas - RISC/ CISC\n26/09/2025 Computador Simples\n27/09/2025 IfTech e Semepi\n03/10/2025 Sistemas de Entrada e Saída - Portas Serial/Paralela\n10/10/2025 Montagem e desmontagem de computadores\n17/10/2025 Avaliação - Publicação dos resultados\n24/10/2025 Sistema Operacional - Histórico\n31/10/2025 Sistemas Operacionais Microsoft\n07/11/2025 Anime (reposição de dia letivo referente a sexta-feira)\n14/11/2025 Sistemas Operacionais Linux\n21/11/2025 Máquinas Virtuais e Emuladores\n28/11/2025 Arquitetura de Sistemas Embarcados\n05/12/2025 Dispositivos de Armazenamento\n06/12/2025 Anime IFPR\n12/12/2025 Software de Sistema\n19/12/2025 Avaliação - Publicação dos resultados",
+  "plano": "14/03/2025 Apresentação do Plano de Trabalho - Conceitos Iniciais de OAC\n21/03/2025 Hardware , Software, Sistemas e Arquiteturas\n28/03/2025 História do computador e Conceitos Fundamentais\n04/04/2025 Hierarquia de Níveis - Modelo Von Neumman\n11/04/2025 Componentes do Computador: Processador\n25/04/2025 Componentes do Computador: Memórias e Periféricos\n09/05/2025 Representação de Dados Computacionais\n16/05/2025 Sistemas de Numeração\n23/05/2025 Exercícios e Avaliação\n24/05/2025 Reunião de Pais\n30/05/2025 Avaliação - Publicação dos resultados\n06/06/2025 Revisão de Conteúdo\n13/06/2025 Tabela ASCII\n27/06/2025 MOVE IFPR 2022\n04/07/2025 Álgebra Booleana\n05/07/2025 Semana Arte e Cultura\n11/07/2025 Lógica Digital\n18/07/2025 Exercícios Lógica Digital/ Avaliação\n19/07/2025 Festival de Musica\n15/08/2025 Funções Booleanas\n22/08/2025 Exercícios Álgebra Booleana\n29/08/2025 Exemplos de Arquiteturas Reais – Intel 8086\n05/09/2025 Memória / Tipos de Memória\n12/09/2025 Processamento de Instruções\n19/09/2025 Arquiteturas Alternativas - RISC/ CISC\n26/09/2025 Computador Simples\n27/09/2025 IfTech e Semepi\n03/10/2025 Sistemas de Entrada e Saída - Portas Serial/Paralela\n10/10/2025 Prova e Correção\n17/10/2025 Montagem e desmontagem de computadores\n24/10/2025 Sistema Operacional - Histórico\n31/10/2025 Sistemas Operacionais Microsoft\n07/11/2025 Anime (reposição de dia letivo referente a sexta-feira)\n14/11/2025 Sistemas Operacionais Linux\n21/11/2025 Máquinas Virtuais e Emuladores\n28/11/2025 Arquitetura de Sistemas Embarcados\n05/12/2025 Dispositivos de Armazenamento\n06/12/2025 Anime IFPR\n12/12/2025 Software de Sistema\n19/12/2025 Avaliação - Publicação dos resultados",
   "chamada": "<iframe src='https://docs.google.com/spreadsheets/d/e/2PACX-1vTjgoX09EGWkfAVGNW6ngKwL1K1NYs_SQO6V0HBZCocIAlkd9HnKSDZbyUlV0YQfBCTOnEltlI2795m/pubhtml?gid=397230870&amp;single=true&amp;widget=true&amp;headers=false'></iframe>",
   "aula": [
     {
@@ -7,6 +7,13 @@
       "atividades": "Correção de atividades do caderno",
       "descricao": "",
       "data": "10/10/2025",
+      "conteudo": "#"
+    },
+    {
+      "titulo": "Montagem e Desmontagem 3/4",
+      "atividades": "Correção de atividades do caderno",
+      "descricao": "",
+      "data": "17/10/2025",
       "conteudo": "#"
     }
   ]

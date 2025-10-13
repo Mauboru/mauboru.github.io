@@ -1,5 +1,5 @@
 {
-  "plano": "21/08  Apresentação da disciplina e impacto da tecnologia na sociedade\n28/08  História da tecnologia e evolução dos dispositivos\n04/09  Hardware e software\n11/09  Inteligência Artificial e Machine Learning\n18/09  NLP na prática\n25/09  Reconhecimento de padrões com redes neurais\n02/10  Internet das Coisas (IoT)\n09/10  Realidade Virtual e Aumentada\n16/10  Robótica e automação\n23/10  Big Data e análise de dados\n30/10  Tecnologias verdes e energia renovável\n06/11  Segurança da informação e privacidade\n13/11  Educação e tecnologia (EdTech)\n20/11  Transformação digital no mercado de trabalho\n27/11  Ferramentas de colaboração e comunicação\n04/12  Empreendedorismo tecnológico\n11/12  Desenvolvimento do projeto final\n18/12  Apresentação dos projetos e encerramento",
+  "plano": "21/08  Apresentação da disciplina e impacto da tecnologia na sociedade\n28/08  História da tecnologia e evolução dos dispositivos\n04/09  Hardware e software\n11/09  Inteligência Artificial e Machine Learning\n18/09  NLP na prática\n25/09  Reconhecimento de padrões com redes neurais\n02/10  Internet das Coisas (IoT)\n09/10  Realidade Virtual e Aumentada\n16/10  DESENVOLVIMENTO DE JOGOS (INTRODUÇÃO)\n23/10  Big Data e análise de dados\n30/10  Tecnologias verdes e energia renovável\n06/11  Segurança da informação e privacidade\n13/11  Educação e tecnologia (EdTech)\n20/11  Transformação digital no mercado de trabalho\n27/11 Desenvolvimento de Atividade\n04/12  Empreendedorismo tecnológico\n11/12  Apresentação do projeto final\n18/12  Recuperação e Bagunça",
   "chamada": "<iframe src='https://docs.google.com/spreadsheets/d/e/2PACX-1vTjgoX09EGWkfAVGNW6ngKwL1K1NYs_SQO6V0HBZCocIAlkd9HnKSDZbyUlV0YQfBCTOnEltlI2795m/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false'></iframe>",
   "aula": [
     {
@@ -8,6 +8,13 @@
       "descricao": "Criar uma solução IoT para cada local (casa, escola, fazenda, indústria, cidade).",
       "data": "09/10/2025",
       "conteudo": "#"
+    },
+    {
+      "titulo": "Desenvolvimento de Jogos (INTRODUÇÃO)",
+      "atividades": "Atividade 02",
+      "descricao": "???",
+      "data": "16/10/2025",
+      "conteudo": "../jogo.html"
     }
   ]
 }
