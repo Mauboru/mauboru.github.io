@@ -127,11 +127,6 @@ const systems = [
     img: "https://cdn-icons-png.freepik.com/512/2165/2165004.png",
   },
   {
-    name: "Rupia Wallet",
-    url: "https://rupiawallet.tecnomaub.site/",
-    img: "https://rupiawallet.tecnomaub.site/logo.png",
-  },
-  {
     name: "API - Rupia Wallet",
     url: "https://api-rupiawallet.tecnomaub.site/",
     img: "https://cdn-icons-png.freepik.com/512/2165/2165004.png",
