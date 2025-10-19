@@ -25,7 +25,6 @@
         color: var(--text);
         margin: 0;
         padding: 0;
-        position: relative;
       }
 
       header {
@@ -33,8 +32,8 @@
         color: #fff;
         text-align: center;
         padding: 2rem 1rem;
-        position: relative;
         box-shadow: var(--shadow);
+        position: relative;
       }
 
       header h1 {
@@ -63,7 +62,7 @@
       .flex-container {
         display: flex;
         gap: 2rem;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
       }
 
       .flex-item {
@@ -88,6 +87,23 @@
         gap: 0.5rem;
       }
 
+      .plano-line {
+        padding: 0.3rem 0.5rem;
+        border-radius: 5px;
+      }
+
+      .plano-line.today {
+        background-color: var(--secondary);
+        color: white;
+        font-weight: bold;
+      }
+
+      #chamada-content iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+      }
+
       ul {
         list-style: none;
         padding: 0;
@@ -103,123 +119,6 @@
         font-size: 0.95rem;
       }
 
-      .empty {
-        color: var(--muted);
-        font-style: italic;
-        text-align: center;
-        padding: 1rem 0;
-      }
-
-      input,
-      button {
-        padding: 0.6rem 1rem;
-        border-radius: var(--radius);
-        border: 1px solid var(--border);
-        font-size: 1rem;
-      }
-
-      button {
-        background-color: var(--secondary);
-        color: white;
-        border: none;
-        cursor: pointer;
-      }
-
-      button:hover {
-        opacity: 0.9;
-      }
-
-      /* Pokémon Floating Icon */
-      #pokemon-icon {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 60px;
-        height: 60px;
-        background-color: var(--secondary);
-        border-radius: 50%;
-        box-shadow: var(--shadow);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 30px;
-        cursor: pointer;
-        z-index: 1000;
-      }
-
-      /* Modal */
-      #pokemon-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 2000;
-        align-items: center;
-        justify-content: center;
-      }
-
-      #pokemon-modal .modal-content {
-        background: white;
-        border-radius: var(--radius);
-        padding: 1.5rem;
-        max-width: 400px;
-        width: 90%;
-        position: relative;
-        text-align: center;
-      }
-
-      #pokemon-modal .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        font-size: 20px;
-        cursor: pointer;
-      }
-
-      .pokemon-img {
-        width: 140px;
-        height: 140px;
-        object-fit: contain;
-      }
-
-      .xp-bar {
-        background-color: #ddd;
-        border-radius: 10px;
-        overflow: hidden;
-        height: 10px;
-        margin: 0.5rem 0;
-      }
-
-      .xp-fill {
-        height: 100%;
-        background-color: var(--secondary);
-        width: 0%;
-        transition: width 0.3s ease;
-      }
-
-      /* Plano de aula linhas */
-      .plano-line {
-        padding: 0.3rem 0.5rem;
-        border-radius: 5px;
-      }
-
-      .plano-line.today {
-        background-color: var(--secondary);
-        color: white;
-        font-weight: bold;
-      }
-
-      /* Ajuste do iframe */
-      #chamada-content iframe {
-        width: 100%;
-        height: 500px;
-        border: none;
-      }
-      /* Cards de atividades */
       .atividade-card {
         background: #eef1f5;
         border-left: 4px solid var(--secondary);
@@ -228,10 +127,6 @@
         margin-bottom: 1rem;
         box-shadow: var(--shadow);
         transition: transform 0.2s ease;
-      }
-
-      .atividade-card:hover {
-        transform: translateY(-3px);
       }
 
       .atividade-card h3 {
@@ -249,6 +144,13 @@
       .atividade-card p {
         margin: 0;
         font-size: 0.9rem;
+      }
+
+      .empty {
+        color: var(--muted);
+        font-style: italic;
+        text-align: center;
+        padding: 1rem 0;
       }
     </style>
   </head>
@@ -277,7 +179,6 @@
         </section>
       </div>
 
-      <!-- Atividades -->
       <section class="section">
         <h2><i class="fa-solid fa-tasks"></i> Atividades</h2>
         <ul id="atividades-list">
@@ -285,7 +186,6 @@
         </ul>
       </section>
 
-      <!-- Aulas -->
       <section class="section">
         <h2><i class="fa-solid fa-book-open"></i> Aulas</h2>
         <ul id="aulas-list">
@@ -294,163 +194,12 @@
       </section>
     </div>
 
-    <!-- Floating Pokémon Icon -->
-    <div id="pokemon-icon" title="Abrir Pokémon">
-      <i class="fa-solid fa-dragon"></i>
-    </div>
-
-    <!-- Modal -->
-    <div id="pokemon-modal">
-      <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <div id="pokemon-display" class="empty">
-          Nenhum Pokémon selecionado ainda.
-        </div>
-        <div class="pokemon-select" style="margin-top: 10px">
-          <input
-            type="text"
-            id="pokemon-name"
-            placeholder="Digite nome ou ID (ex: pikachu, 155)" />
-          <button id="choose-pokemon">Selecionar</button>
-          <button
-            id="reset-pokemon"
-            style="background-color: #dc3545; display: none">
-            Trocar Pokémon
-          </button>
-        </div>
-      </div>
-    </div>
-
     <script>
       const params = new URLSearchParams(window.location.search);
       const materiaKeyRaw = params.get("materia") || "geral";
       const materiaKey = materiaKeyRaw.replace(/[^a-zA-Z0-9_-]/g, "_");
-      const storageKey = `pokemon_${materiaKey}`;
-
       const title = document.getElementById("materia-titulo");
       title.textContent = materiaKeyRaw.replace(/\./g, " ");
-
-      // Pokémon
-      let pokemonData = null,
-        xp = 0,
-        xpToEvolve = 100;
-      const icon = document.getElementById("pokemon-icon");
-      const modal = document.getElementById("pokemon-modal");
-      const display = document.getElementById("pokemon-display");
-      const pokemonInput = document.getElementById("pokemon-name");
-      const chooseBtn = document.getElementById("choose-pokemon");
-      const resetBtn = document.getElementById("reset-pokemon");
-
-      // Modal
-      icon.addEventListener("click", () => (modal.style.display = "flex"));
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) modal.style.display = "none";
-      });
-      modal
-        .querySelector(".close-btn")
-        .addEventListener("click", () => (modal.style.display = "none"));
-
-      async function fetchPokemon(identifier) {
-        const name = String(identifier).toLowerCase().trim();
-        try {
-          const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-          if (!res.ok) throw new Error("Pokémon não encontrado");
-          return await res.json();
-        } catch (err) {
-          display.innerHTML = `<p style="color:red">${err.message}</p>`;
-          return null;
-        }
-      }
-
-      function renderPokemon(poke) {
-        display.classList.remove("empty");
-        display.innerHTML = `
-        <div class="pokemon-box">
-          <div class="pokemon-info">
-            <h3>${poke.name.toUpperCase()}</h3>
-            <p><strong>Tipo:</strong> ${poke.types
-              .map((t) => t.type.name)
-              .join(", ")}</p>
-            <p><strong>XP:</strong> <span id="xp-value">${xp}</span> / ${xpToEvolve}</p>
-            <div class="xp-bar"><div class="xp-fill" id="xp-bar-fill" style="width:${
-              (xp / xpToEvolve) * 100
-            }%"></div></div>
-            <button id="gain-xp">Ganhar XP</button>
-          </div>
-          <img src="${poke.sprites.front_default}" alt="${
-          poke.name
-        }" class="pokemon-img">
-        </div>`;
-        document.getElementById("gain-xp").addEventListener("click", gainXP);
-        resetBtn.style.display = "inline-block";
-      }
-
-      function updateXPBar() {
-        document.getElementById("xp-value").textContent = xp;
-        const percent = Math.min((xp / xpToEvolve) * 100, 100);
-        document.getElementById("xp-bar-fill").style.width = percent + "%";
-        saveToStorage();
-      }
-
-      function gainXP() {
-        xp += 20;
-        if (xp >= xpToEvolve) evolvePokemon();
-        else updateXPBar();
-      }
-
-      async function evolvePokemon() {
-        const nextId = pokemonData.id + 1;
-        const evolved = await fetchPokemon(nextId);
-        if (!evolved) return;
-        pokemonData = evolved;
-        xp = 0;
-        xpToEvolve += 50;
-        renderPokemon(pokemonData);
-        saveToStorage();
-        alert(`${pokemonData.name.toUpperCase()} evoluiu!`);
-      }
-
-      function saveToStorage() {
-        const data = {
-          id: pokemonData.id,
-          name: pokemonData.name,
-          xp,
-          xpToEvolve,
-        };
-        localStorage.setItem(storageKey, JSON.stringify(data));
-      }
-
-      async function loadFromStorage() {
-        const saved = localStorage.getItem(storageKey);
-        if (!saved) return;
-        const data = JSON.parse(saved);
-        const poke = await fetchPokemon(data.name);
-        if (poke) {
-          pokemonData = poke;
-          xp = data.xp;
-          xpToEvolve = data.xpToEvolve;
-          renderPokemon(pokemonData);
-        }
-      }
-
-      chooseBtn.addEventListener("click", async () => {
-        const name = pokemonInput.value.trim();
-        if (!name) return;
-        const data = await fetchPokemon(name);
-        if (data) {
-          pokemonData = data;
-          xp = 0;
-          xpToEvolve = 100;
-          renderPokemon(pokemonData);
-          saveToStorage();
-        }
-      });
-
-      resetBtn.addEventListener("click", () => {
-        localStorage.removeItem(storageKey);
-        display.innerHTML = `<p class="empty">Nenhum Pokémon selecionado ainda.</p>`;
-        resetBtn.style.display = "none";
-      });
 
       async function loadMateria() {
         try {
@@ -461,14 +210,15 @@
           // Plano de Aula
           const planoContent = document.getElementById("plano-aula-content");
           planoContent.innerHTML = "";
-          if (data.plano) {
+
+          if (data.plano && Array.isArray(data.plano)) {
             planoContent.classList.remove("empty");
-            const lines = data.plano.split("\n");
             const todayStr = new Date().toLocaleDateString("pt-BR", {
               day: "2-digit",
               month: "2-digit",
             });
-            lines.forEach((line) => {
+
+            data.plano.forEach((line) => {
               const div = document.createElement("div");
               div.classList.add("plano-line");
               if (line.startsWith(todayStr)) div.classList.add("today");
@@ -485,11 +235,6 @@
           if (data.chamada) {
             chamadaContent.classList.remove("empty");
             chamadaContent.innerHTML = data.chamada;
-            const iframe = chamadaContent.querySelector("iframe");
-            if (iframe) {
-              iframe.style.width = "100%";
-              iframe.style.height = "800px";
-            }
           } else {
             chamadaContent.classList.add("empty");
             chamadaContent.textContent =
@@ -520,10 +265,10 @@
               const card = document.createElement("div");
               card.classList.add("atividade-card");
               card.innerHTML = `
-      <h3>${item.atividades}</h3>
-      <div class="data">Data: ${item.data}</div>
-      <p>${item.descricao}</p>
-    `;
+              <h3>${item.atividades}</h3>
+              <div class="data">Data: ${item.data}</div>
+              <p>${item.descricao}</p>
+            `;
               atividadesList.appendChild(card);
             });
           } else {
@@ -538,7 +283,6 @@
       }
 
       loadMateria();
-      loadFromStorage();
     </script>
   </body>
 </html>
