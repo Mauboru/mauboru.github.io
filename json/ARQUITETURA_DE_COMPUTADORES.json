@@ -30,15 +30,15 @@
     "03/10/2025 Sistemas de Entrada e Saída - Portas Serial/Paralela",
     "10/10/2025 Prova e Correção",
     "17/10/2025 Montagem e desmontagem de computadores",
-    "24/10/2025 Sistema Operacional - Histórico",
-    "31/10/2025 Sistemas Operacionais Microsoft",
+    "24/10/2025 Sistema Binário",
+    "31/10/2025 ??",
     "07/11/2025 Anime (reposição de dia letivo referente a sexta-feira)",
-    "14/11/2025 Sistemas Operacionais Linux",
-    "21/11/2025 Máquinas Virtuais e Emuladores",
-    "28/11/2025 Arquitetura de Sistemas Embarcados",
-    "05/12/2025 Dispositivos de Armazenamento",
+    "14/11/2025 ??",
+    "21/11/2025 ??",
+    "28/11/2025 ??",
+    "05/12/2025 ??",
     "06/12/2025 Anime IFPR",
-    "12/12/2025 Software de Sistema",
+    "12/12/2025 ??",
     "19/12/2025 Avaliação - Publicação dos resultados"
   ],
   "chamada": "<iframe src='https://docs.google.com/spreadsheets/d/e/2PACX-1vTjgoX09EGWkfAVGNW6ngKwL1K1NYs_SQO6V0HBZCocIAlkd9HnKSDZbyUlV0YQfBCTOnEltlI2795m/pubhtml?gid=397230870&amp;single=true&amp;widget=true&amp;headers=false'></iframe>",
@@ -52,10 +52,17 @@
     },
     {
       "titulo": "Montagem e Desmontagem 3/4",
-      "atividades": "Correção de atividades do caderno",
+      "atividades": "Carimbo no Checklist de Montagem/Desmontagem",
       "descricao": "",
       "data": "17/10/2025",
       "conteudo": "#"
+    },
+    {
+      "titulo": "Sistema Binário",
+      "atividades": "Atividade no Caderno",
+      "descricao": "",
+      "data": "24/10/2025",
+      "conteudo": "https://docs.google.com/presentation/d/e/2PACX-1vTtzPLzpvzg4Ng87tO8xWnBeGExg8G5R6fXHO0X-hPFuLUjuMKiTFmk95XjuJSJQQ9xxZPh_tjruMEe/pub?start=false&loop=false&delayms=3000"
     }
   ]
 }
