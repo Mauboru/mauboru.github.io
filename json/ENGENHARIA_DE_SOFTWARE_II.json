@@ -30,12 +30,12 @@
     "19/09/2025 Avaliação Bimestral",
     "26/09/2025 Revisão de gestão de projetos",
     "03/10/2025 Revisão de metodologias ágeis",
-    "10/10/2025 Revisão de testes e qualidade",
-    "17/10/2025 Atividade Prática: Caso integrado",
+    "10/10/2025 Introdução a Padrão de Projetos",
+    "17/10/2025 Introdução a Padrão de Projetos /2",
     "24/10/2025 Palestra - vivência de um engenheiro de software na atuação profissional",
     "31/10/2025 Debate: Tendências do mercado",
-    "07/11/2025 Estudo de caso",
-    "14/11/2025 Apresentação - Estudo de Caso",
+    "07/11/2025 ??",
+    "14/11/2025 ??",
     "21/11/2025 Recesso (12/04 Sábado Letivo - Educação Inclusiva)",
     "28/11/2025 Avaliação Final",
     "05/12/2025 Recuperação da Avaliação",
@@ -56,6 +56,13 @@
       "descricao": "",
       "data": "17/10/2025",
       "conteudo": "https://docs.google.com/presentation/d/e/2PACX-1vTzOK4ksMLLC-D6--J8sGQqRFFSVekhYFpWG-Rjf4H_KSp27Hz3qhOiMvyqfHQjie616zQDlJQKFqNe/pub?start=false&loop=false&delayms=60000"
+    },
+    {
+      "titulo": "Revisão de Padrões de Projetos e Introdução a Fundamentos de Testes de Softwares",
+      "atividades": "",
+      "descricao": "",
+      "data": "24/10/2025",
+      "conteudo": "https://docs.google.com/presentation/d/e/2PACX-1vQk0DjLur6B_uOlY5k5IUhvCDr5hd_9fPfPsQmRsTJ5hc2RDH_swJjR6G3Q-e4BCTUqueb2FxpyB7kg/pub?start=false&loop=false&delayms=3000"
     }
   ]
 }
