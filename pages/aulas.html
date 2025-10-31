@@ -4,172 +4,422 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aulas - Prof. Josué Henrique</title>
+    <link rel="icon" href="../images/tecno.ico" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet" />
 
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
       :root {
-        --primary: #0056b3;
-        --secondary: #007bff;
-        --bg-light: #f8f9fa;
-        --text-dark: #333;
-        --text-muted: #555;
-        --radius: 10px;
-        --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        --bg-color: #1f242d;
+        --second-bg-color: #323946;
+        --text-color: #fff;
+        --main-color: #0ef;
+      }
+
+      html {
+        font-size: 62.5%;
+        overflow-x: hidden;
       }
 
       body {
-        font-family: "Segoe UI", Arial, sans-serif;
-        background-color: #f1f3f6;
-        color: var(--text-dark);
-        margin: 0;
-        padding: 0;
+        background: var(--bg-color);
+        color: var(--text-color);
+        min-height: 100vh;
       }
 
-      header {
-        background: var(--primary);
-        color: white;
+      a {
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      a:link,
+      a:visited,
+      a:hover,
+      a:active,
+      a:focus {
+        text-decoration: none !important;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 2rem 9%;
+        background: var(--bg-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+      }
+
+      .logo {
+        font-size: 3.5rem;
+        color: var(--text-color);
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .logo:hover {
+        color: var(--main-color);
+      }
+
+      .nav-back {
+        font-size: 1.7rem;
+        color: var(--text-color);
+        font-weight: 500;
+        text-decoration: none;
+        transition: 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .nav-back:hover {
+        color: var(--main-color);
+      }
+
+      .hero-section {
+        margin-top: 10rem;
+        padding: 4rem 9% 2rem;
         text-align: center;
-        padding: 2rem 1rem;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       }
 
-      header h1 {
-        margin: 0;
+      .hero-section h1 {
+        font-size: 4.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .hero-section h1 span {
+        color: var(--main-color);
+      }
+
+      .hero-section p {
         font-size: 1.8rem;
-        letter-spacing: 0.5px;
+        color: var(--text-color);
+        opacity: 0.8;
+        margin-bottom: 3rem;
       }
 
       .container {
-        max-width: 1100px;
-        margin: 2rem auto;
-        background: white;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        overflow: hidden;
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 2rem 9%;
       }
 
       .professor-info {
-        background-color: var(--bg-light);
-        padding: 2rem;
-        border-bottom: 1px solid #ddd;
+        background: var(--second-bg-color);
+        padding: 3rem;
+        border-radius: 2rem;
+        margin-bottom: 3rem;
+        border: 0.2rem solid var(--bg-color);
+        transition: 0.5s ease;
+      }
+
+      .professor-info:hover {
+        border-color: var(--main-color);
       }
 
       .professor-info h2 {
-        margin-top: 0;
-        color: var(--primary);
+        font-size: 2.6rem;
+        margin-bottom: 2rem;
+        color: var(--main-color);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
       }
 
-      .professor-info p {
-        margin: 0.5rem 0;
-        font-size: 0.95rem;
+      .professor-info h2 i {
+        font-size: 2.6rem;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .info-item {
+        font-size: 1.6rem;
+        line-height: 1.8;
+      }
+
+      .info-item strong {
+        color: var(--main-color);
+        font-weight: 600;
+      }
+
+      .info-item a {
+        color: var(--main-color);
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .info-item a:hover {
+        text-decoration: underline;
       }
 
       .materias {
-        padding: 2rem;
+        margin-top: 2rem;
       }
 
       .materias h2 {
-        color: var(--primary);
-        margin-top: 0;
-        margin-bottom: 1.5rem;
+        font-size: 3rem;
+        margin-bottom: 3rem;
+        color: var(--main-color);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
       }
 
       .materias-list {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 1.2rem;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
         list-style: none;
         padding: 0;
-        margin: 0;
+        align-items: stretch;
       }
 
       .materia-item {
-        background-color: var(--bg-light);
-        border: 1px solid #e0e0e0;
-        border-radius: var(--radius);
-        padding: 1.5rem;
-        transition: all 0.2s ease-in-out;
+        background: var(--second-bg-color);
+        border: 0.2rem solid var(--bg-color);
+        border-radius: 2rem;
+        padding: 2.5rem;
+        transition: 0.5s ease;
         cursor: pointer;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
 
       .materia-item:hover {
-        background: white;
-        transform: translateY(-4px);
-        box-shadow: var(--shadow);
+        border-color: var(--main-color);
+        transform: translateY(-0.5rem);
       }
 
       .materia-item h3 {
-        margin-top: 0;
-        color: var(--secondary);
-        margin-bottom: 0.5rem;
-      }
-
-      .materia-item p {
-        margin: 0.3rem 0;
-        color: var(--text-muted);
-        font-size: 0.9rem;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
       }
 
       .materia-item i {
-        color: var(--secondary);
-        margin-right: 0.4rem;
+        font-size: 2.5rem;
+        color: var(--main-color);
       }
 
-      footer {
-        text-align: center;
-        padding: 1.2rem;
-        color: #666;
-        font-size: 0.85rem;
+      .materia-item p {
+        font-size: 1.4rem;
+        margin: 0.8rem 0;
+        color: var(--text-color);
+        opacity: 0.8;
       }
 
-      @media (max-width: 600px) {
-        .professor-info,
-        .materias {
-          padding: 1.2rem;
+      .materia-item a {
+        text-decoration: none !important;
+        color: inherit !important;
+        display: block;
+        height: 100%;
+        outline: none !important;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .materia-item a:link,
+      .materia-item a:visited,
+      .materia-item a:hover,
+      .materia-item a:active,
+      .materia-item a:focus {
+        text-decoration: none !important;
+        color: inherit !important;
+        outline: none !important;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .materia-item a * {
+        text-decoration: none !important;
+        color: inherit !important;
+      }
+
+      .materia-item a h3,
+      .materia-item a p,
+      .materia-item a strong {
+        text-decoration: none !important;
+        color: inherit !important;
+      }
+
+      .materias-list li {
+        display: flex;
+        height: 100%;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 2rem 9%;
+        background: var(--second-bg-color);
+      }
+
+      .footer-text p {
+        font-size: 1.6rem;
+        color: var(--text-color);
+        opacity: 0.8;
+      }
+
+      .badge {
+        display: inline-block;
+        background: var(--main-color);
+        color: var(--bg-color);
+        padding: 0.3rem 1rem;
+        border-radius: 2rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-left: 0.5rem;
+      }
+
+      @media (max-width: 1200px) {
+        html {
+          font-size: 55%;
+        }
+      }
+
+      @media (max-width: 991px) {
+        .header {
+          padding: 2rem 3%;
+        }
+
+        .container,
+        .hero-section {
+          padding: 2rem 3%;
+        }
+
+        .footer {
+          padding: 2rem 3%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-section h1 {
+          font-size: 3.5rem;
+        }
+
+        .materias-list {
+          grid-template-columns: 1fr;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 450px) {
+        html {
+          font-size: 50%;
+        }
+
+        .hero-section h1 {
+          font-size: 2.8rem;
+        }
+
+        .professor-info {
+          padding: 2rem;
+        }
+      }
+
+      @media (max-width: 365px) {
+        .footer {
+          flex-direction: column-reverse;
+        }
+
+        .footer p {
+          text-align: center;
+          margin-top: 2rem;
         }
       }
     </style>
   </head>
 
   <body>
-    <header>
-      <h1>Portal de Aulas - Prof. Josué Henrique</h1>
+    <header class="header">
+      <a href="../index.html" class="logo">Portal</a>
+      <a href="../index.html" class="nav-back">
+        <i class="bx bx-arrow-back"></i> Voltar
+      </a>
     </header>
+
+    <section class="hero-section">
+      <h1>Portal de <span>Aulas</span></h1>
+      <p>Bem-vindo ao ambiente de ensino digital</p>
+    </section>
 
     <div class="container">
       <div class="professor-info">
         <h2><i class="fa-solid fa-user-tie"></i> Informações do Professor</h2>
-        <p>
-          <strong>Horário de Atendimento:</strong> Terça (11:05–12:30), Quinta
-          (09:30–12:00), Sexta (08:30–11:00)
-        </p>
-        <p>
-          <strong>E-mail:</strong>
-          <a href="mailto:josue.henrique@ifpr.edu.br"
-            >josue.henrique@ifpr.edu.br</a
-          >
-        </p>
-        <p>
-          <strong>Discord:</strong
-          ><a href="https://discord.gg/JuX2WBwxFF">link</a>
-        </p>
-        <p>
-          <strong>Materiais:</strong> Disponíveis nas páginas de cada matéria.
-        </p>
+        <div class="info-grid">
+          <div class="info-item">
+            <strong>Horário de Atendimento:</strong><br />
+            Terça: 11:05–12:30<br />
+            Quinta: 09:30–12:00<br />
+            Sexta: 08:30–11:00
+          </div>
+          <div class="info-item">
+            <strong>E-mail:</strong><br />
+            <a href="mailto:josue.henrique@ifpr.edu.br"
+              >josue.henrique@ifpr.edu.br</a
+            >
+          </div>
+          <div class="info-item">
+            <strong>Discord:</strong><br />
+            <a href="https://discord.gg/JuX2WBwxFF" target="_blank"
+              >Entrar no servidor</a
+            >
+          </div>
+          <div class="info-item">
+            <strong>Materiais:</strong><br />
+            Disponíveis nas páginas de cada matéria
+          </div>
+        </div>
       </div>
 
       <section class="materias">
         <h2><i class="fa-solid fa-book-open"></i> Minhas Matérias</h2>
         <ul class="materias-list">
           <li>
-            <a
-              href="materia.html?materia=WEB_I"
-              style="text-decoration: none; color: inherit">
+            <a href="materia.html?materia=WEB_I">
               <div class="materia-item">
                 <h3><i class="fa-solid fa-code"></i> Desenvolvimento Web I</h3>
                 <p><strong>Turma:</strong> TADS25</p>
@@ -179,9 +429,7 @@
           </li>
 
           <li>
-            <a
-              href="materia.html?materia=TF_EM_COMPUTACAO"
-              style="text-decoration: none; color: inherit">
+            <a href="materia.html?materia=TF_EM_COMPUTACAO">
               <div class="materia-item">
                 <h3><i class="fa-solid fa-flask"></i> TF em Computação</h3>
                 <p><strong>Turma:</strong> INFO25</p>
@@ -191,9 +439,7 @@
           </li>
 
           <li>
-            <a
-              href="materia.html?materia=ARQUITETURA_DE_COMPUTADORES"
-              style="text-decoration: none; color: inherit">
+            <a href="materia.html?materia=ARQUITETURA_DE_COMPUTADORES">
               <div class="materia-item">
                 <h3>
                   <i class="fa-solid fa-microchip"></i> Arquitetura de
@@ -206,9 +452,7 @@
           </li>
 
           <li>
-            <a
-              href="materia.html?materia=ENGENHARIA_DE_SOFTWARE_II"
-              style="text-decoration: none; color: inherit">
+            <a href="materia.html?materia=ENGENHARIA_DE_SOFTWARE_II">
               <div class="materia-item">
                 <h3>
                   <i class="fa-solid fa-diagram-project"></i> Engenharia de
@@ -221,9 +465,7 @@
           </li>
 
           <li>
-            <a
-              href="materia.html?materia=METODOLOGIA_CIENTIFICA"
-              style="text-decoration: none; color: inherit">
+            <a href="materia.html?materia=METODOLOGIA_CIENTIFICA">
               <div class="materia-item">
                 <h3><i class="fa-solid fa-book"></i> Metodologia Científica</h3>
                 <p><strong>Turma:</strong> INFO22</p>
@@ -234,6 +476,26 @@
         </ul>
       </section>
     </div>
-    <footer>&copy; 2025 Prof. Josué Henrique — IFPR</footer>
+
+    <footer class="footer">
+      <div class="footer-text">
+        <p>Copyright &copy; 2025 TecnoMaub | All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+      ScrollReveal({
+        distance: "80px",
+        duration: 2000,
+        delay: 200,
+      });
+
+      ScrollReveal().reveal(".professor-info", { origin: "top" });
+      ScrollReveal().reveal(".materia-item", {
+        origin: "bottom",
+        interval: 200,
+      });
+    </script>
   </body>
 </html>

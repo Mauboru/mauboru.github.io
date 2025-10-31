@@ -32,8 +32,8 @@
     "03/10/2025 Revisão de metodologias ágeis",
     "10/10/2025 Introdução a Padrão de Projetos",
     "17/10/2025 Introdução a Padrão de Projetos - Continuação",
-    "24/10/2025 Revisão de Padrões de Projetos e Introdução a Fundamentos de Testes de Softwares",
-    "31/10/2025 ??",
+    "24/10/2025 Evento Coaliza",
+    "31/10/2025 Revisão de Padrões de Projetos e Introdução a Fundamentos de Testes de Softwares",
     "07/11/2025 ??",
     "14/11/2025 ??",
     "21/11/2025 Recesso (12/04 Sábado Letivo - Educação Inclusiva)",
@@ -53,14 +53,14 @@
     {
       "titulo": "Apresentação do Professor Novo (de novo) e Revisão de testes e qualidade",
       "atividades": "Desenvolver 3 Scripts (Singleton, Factoy e Builder)",
-      "descricao": "",
+      "descricao": "Conceito - 5pts",
       "data": "17/10/2025",
       "conteudo": "https://docs.google.com/presentation/d/e/2PACX-1vTzOK4ksMLLC-D6--J8sGQqRFFSVekhYFpWG-Rjf4H_KSp27Hz3qhOiMvyqfHQjie616zQDlJQKFqNe/pub?start=false&loop=false&delayms=60000"
     },
-        {
-      "titulo": "Aula 'Online'",
+    {
+      "titulo": "Evento Coaliza - (AVA)",
       "atividades": "Atividade no AVA",
-      "descricao": "estava no ava e valeu como conceito e presença",
+      "descricao": "Conceito - 15pts",
       "data": "24/10/2025",
       "conteudo": "https://docs.google.com/presentation/d/e/2PACX-1vQk0DjLur6B_uOlY5k5IUhvCDr5hd_9fPfPsQmRsTJ5hc2RDH_swJjR6G3Q-e4BCTUqueb2FxpyB7kg/pub?start=false&loop=false&delayms=3000"
     },

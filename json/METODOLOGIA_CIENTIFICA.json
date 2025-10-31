@@ -28,9 +28,9 @@
     "05/09/2025 Continuação da oficina de produção",
     "12/09/2025 Revisão geral dos conteúdos",
     "19/09/2025 2ª entrega corrigida",
-    "26/09/2025 Acompanhamento do Projeto de Pesquisa – Parte 1",
-    "03/10/2025 Acompanhamento do Projeto de Pesquisa – Parte 2",
-    "10/10/2025 Acompanhamento do Projeto de Pesquisa – Parte 3",
+    "26/09/2025 Acompanhamento do Projeto de Pesquisa - Parte 1",
+    "03/10/2025 Acompanhamento do Projeto de Pesquisa - Parte 2",
+    "10/10/2025 Acompanhamento do Projeto de Pesquisa - Parte 3",
     "17/10/2025 Revisão técnica (estrutura e normas)",
     "24/10/2025 Entrega parcial e feedback dos projetos",
     "31/10/2025 Ajustes e correções finais",
@@ -53,9 +53,23 @@
     {
       "titulo": "Revisão técnica (estrutura e normas)",
       "atividades": "Nenhuma",
-      "descricao": "",
+      "descricao": "Conceito - 20pts",
       "data": "17/10/2025",
       "conteudo": "https://ifpr.edu.br/jaguariaiva/wp-content/uploads/sites/17/2023/01/manual.normas.biblio.pdf"
+    },
+    {
+      "titulo": "Evento Coaliza",
+      "atividades": "Nenhuma",
+      "descricao": "",
+      "data": "24/10/2025",
+      "conteudo": "#"
+    },
+    {
+      "titulo": "Ajustes e correções finais",
+      "atividades": "Apresentação Parcial do Artigo/Sistema",
+      "descricao": "Conceito - 20pts",
+      "data": "31/10/2025",
+      "conteudo": "#"
     }
   ]
 }
