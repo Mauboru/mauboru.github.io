@@ -1,0 +1,47 @@
+{
+  "plano": [
+    "12/08/2025 Apresentação do componente; Principais Conceitos.",
+    "19/08/2025 Introdução ao HTML, conceitos iniciais e estrutura.",
+    "26/08/2025 Trabalhando com tabelas HTML",
+    "02/09/2025 Tabelas e Formulários HTML",
+    "09/09/2025 Mapeamento de Imagens e Introdução ao CSS - Propriedades de Formatação",
+    "16/09/2025 Grupos de Propriedades CSS",
+    "23/09/2025 Box Model e Posicionamento de elementos na tela - Position",
+    "30/09/2025 Avaliação",
+    "07/10/2025 FERIADO",
+    "14/10/2025 Flexbox e Grid Layout",
+    "21/10/2025 Media queries e Interfaces responsivas",
+    "28/10/2025 Introdução a Frameworks/Bibliotecas e Uso básico de Bootstrap",
+    "04/11/2025 Entrega Parcial do Projeto",
+    "11/11/2025 Programação Client-side com JavaScript - Sintaxe básica e variáveis",
+    "18/11/2025 Programação Client-side com JavaScript - Manipulação de DOM",
+    "25/11/2025 Avaliação (Quizz)",
+    "02/12/2025 Programação Client-side com JavaScript - Tratamento de eventos",
+    "09/12/2025 Entrega Final do Projeto",
+    "16/12/2025 Recuperação"
+  ],
+  "chamada": "<iframe src='https://docs.google.com/spreadsheets/d/e/2PACX-1vTjgoX09EGWkfAVGNW6ngKwL1K1NYs_SQO6V0HBZCocIAlkd9HnKSDZbyUlV0YQfBCTOnEltlI2795m/pubhtml?gid=895845876&amp;single=true&amp;widget=true&amp;headers=false'></iframe>",
+  "aula": [
+    {
+      "titulo": "Apresentação do Professor Novo / Introdução a Flexbox e Grid Layout",
+      "atividades": "Exercício Flex/Grid",
+      "descricao": "recriar uma tela igual a do professor utilizando o que aprendeu na aula",
+      "data": "14/10/2025",
+      "conteudo": "https://docs.google.com/presentation/d/e/2PACX-1vSxebcAkKJa55ZurE4fGSwdzDK0s0zy9pc4Winp4Gnupv1J58pZTUzfXRxrdfxNPWwuMp5zHzMM1Qg2/pub?start=false&loop=false&delayms=3000"
+    },
+    {
+      "titulo": "Media queries e Interfaces responsivas",
+      "atividades": "Exercício 02",
+      "descricao": "a atividade estara lançada no ava! link do ava: https://ava.ifpr.edu.br/course/view.php?id=12771",
+      "data": "21/10/2025",
+      "conteudo": "https://docs.google.com/presentation/d/e/2PACX-1vSxebcAkKJa55ZurE4fGSwdzDK0s0zy9pc4Winp4Gnupv1J58pZTUzfXRxrdfxNPWwuMp5zHzMM1Qg2/pub?start=false&loop=false&delayms=3000"
+    },
+    {
+      "titulo": "Introdução a Frameworks/Bibliotecas e Uso básico de Bootstrap",
+      "atividades": "Exercício 03",
+      "descricao": "a atividade estara lançada no ava! link do ava: https://ava.ifpr.edu.br/course/view.php?id=12771",
+      "data": "28/10/2025",
+      "conteudo": "https://docs.google.com/presentation/d/e/2PACX-1vSxebcAkKJa55ZurE4fGSwdzDK0s0zy9pc4Winp4Gnupv1J58pZTUzfXRxrdfxNPWwuMp5zHzMM1Qg2/pub?start=false&loop=false&delayms=3000"
+    }
+  ]
+}

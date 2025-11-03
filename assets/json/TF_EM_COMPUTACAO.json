@@ -1,0 +1,53 @@
+{
+  "plano": [
+    "21/08  Apresentação da disciplina e impacto da tecnologia na sociedade",
+    "28/08  História da tecnologia e evolução dos dispositivos",
+    "04/09  Hardware e software",
+    "11/09  Inteligência Artificial e Machine Learning",
+    "18/09  NLP na prática",
+    "25/09  Reconhecimento de padrões com redes neurais",
+    "02/10  Internet das Coisas (IoT)",
+    "09/10  Realidade Virtual e Aumentada",
+    "16/10  DESENVOLVIMENTO DE JOGOS (INTRODUÇÃO)",
+    "23/10  Movimentação e Controle do Jogador",
+    "30/10  Pixel Art e Design Visual ('Pixel Perfect') / Trabalho (40%)",
+    "06/11  Física e Colisões Avançadas",
+    "13/11  Inteligência Artificial e Inimigos Simples",
+    "20/11  Inventário e Sistema de Itens / Questionário (60%)",
+    "27/11  Design de Cenários e Level Design",
+    "04/12  Combate, Inimigos e Ataques",
+    "11/12  Vida, Power-ups e Progressão",
+    "18/12  Finalização e Entrega do Projeto / Recuperação (30%)"
+  ],
+  "chamada": "<iframe src='https://docs.google.com/spreadsheets/d/e/2PACX-1vTjgoX09EGWkfAVGNW6ngKwL1K1NYs_SQO6V0HBZCocIAlkd9HnKSDZbyUlV0YQfBCTOnEltlI2795m/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false'></iframe>",
+  "aula": [
+    {
+      "titulo": "IOT - Internet das Coisas",
+      "atividades": "Atividade 01",
+      "descricao": "Criar uma solução IoT para cada local (casa, escola, fazenda, indústria, cidade).",
+      "data": "09/10/2025",
+      "conteudo": "#"
+    },
+    {
+      "titulo": "Desenvolvimento de Jogos (INTRODUÇÃO)",
+      "atividades": "Atividade 02",
+      "descricao": "Desenvolver primeiro prototipo de jogo inicial pelo Game Maker 2",
+      "data": "16/10/2025",
+      "conteudo": "https://docs.google.com/presentation/d/e/2PACX-1vRHDjHZO44AdOFW-QBDEKfPk7UBnnPFCHDkLPnvJBWvJ2PLch9PEUv9NNKFP38x_yIVa-4vZ1CC_44Q/pub?start=false&loop=false&delayms=3000"
+    },
+    {
+      "titulo": "Movimentação e Controle do Jogador",
+      "atividades": "Atividade 03",
+      "descricao": "Instruções:\n\nCrie um documento no Word respondendo às seguintes perguntas:\n\nQual é o seu jogo favorito? Explique o que mais gosta nele (história, jogabilidade, gráficos, trilha sonora etc).\n\nQual é seu console ou plataforma favorita (PC, celular, PlayStation, etc) e por quê.\n\nVocê tem vontade de criar um jogo? Se sim, descreva:\n- O gênero (ex: aventura, ação, puzzle...)\n- O objetivo principal\n- O tipo de personagem principal\n- Um resumo de até 5 linhas sobre a história.\n\nSe possível, envie junto um vídeo curto (máx. 1 minuto) mostrando o jogo que você escolheu ou você jogando.\n\nForma de entrega:\n- Enviar por e-mail ao professor até a próxima aula.\n- Nome do arquivo: Atividade01_NomeSobrenome.docx\n\nCritérios de avaliação:\n- Clareza e completude das respostas (4 pts)\n- Criatividade e originalidade (3 pts)\n- Organização e formatação do documento (3 pts)",
+      "data": "23/10/2025",
+      "conteudo": "https://docs.google.com/presentation/d/e/2PACX-1vQQzjvVYsY8w1e4XxtOtchZOfnkCZTaObnDYXGwCpFSuVeOHdpizOy8TqfxCAXYKSfLMddb0DLrFYTe/pub?start=false&loop=false&delayms=3000"
+    },
+    {
+      "titulo": "Pixel Art e Design Visual",
+      "atividades": "",
+      "descricao": "",
+      "data": "30/10/2025",
+      "conteudo": "https://docs.google.com/presentation/d/e/2PACX-1vQQzjvVYsY8w1e4XxtOtchZOfnkCZTaObnDYXGwCpFSuVeOHdpizOy8TqfxCAXYKSfLMddb0DLrFYTe/pub?start=false&loop=false&delayms=3000&slide=id.g39b204f2a87_1_769"
+    }
+  ]
+}
