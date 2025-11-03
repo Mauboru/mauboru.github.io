@@ -1,0 +1,93 @@
+{
+  "name": "TecnoMaub | Portfólio Josué Henrique",
+  "short_name": "TecnoMaub",
+  "description": "Portfólio profissional de Josué Henrique - Desenvolvedor Web, Mobile, Games e mais",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1f242d",
+  "theme_color": "#0ef",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "assets/images/tecno.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/images/tecno.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/images/tecno.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/images/tecno.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/images/tecno.ico",
+      "sizes": "96x96",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/images/tecno.ico",
+      "sizes": "128x128",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/images/tecno.ico",
+      "sizes": "192x192",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/tecno.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/images/tecno.ico",
+      "sizes": "512x512",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "business", "developer"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Portfólio",
+      "short_name": "Portfólio",
+      "description": "Ver projetos do portfólio",
+      "url": "/#portfolio",
+      "icons": [
+        {
+          "src": "assets/images/tecno.ico",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Aulas",
+      "short_name": "Aulas",
+      "description": "Acessar portal de aulas",
+      "url": "/pages/aulas.html",
+      "icons": [
+        {
+          "src": "assets/images/tecno.ico",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
+
