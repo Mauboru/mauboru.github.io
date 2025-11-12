@@ -41,6 +41,13 @@
         </section>
       </div>
 
+      <section class="section" id="bancas-section">
+        <h2><i class="fa-solid fa-gavel"></i> Bancas de TCC</h2>
+        <div id="bancas-content" class="empty">
+          Nenhuma informação de bancas disponível.
+        </div>
+      </section>
+
       <section class="section">
         <h2><i class="fa-solid fa-tasks"></i> Atividades</h2>
         <ul id="atividades-list">
@@ -109,6 +116,20 @@
             chamadaContent.classList.add("empty");
             chamadaContent.textContent =
               "Nenhuma informação de chamada disponível.";
+          }
+
+          // Bancas de TCC
+          const bancasSection = document.getElementById("bancas-section");
+          const bancasContent = document.getElementById("bancas-content");
+          console.log("Bancas data:", data.bancas);
+          if (data.bancas) {
+            bancasSection.style.display = "block";
+            bancasContent.classList.remove("empty");
+            bancasContent.innerHTML = data.bancas;
+            console.log("Bancas section should be visible now");
+          } else {
+            bancasSection.style.display = "none";
+            console.log("Bancas data not found");
           }
 
           // Aulas
