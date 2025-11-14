@@ -1,4 +1,3 @@
-// Service Worker para PWA
 const CACHE_NAME = 'tecnomaub-v1';
 const urlsToCache = [
   '/',
