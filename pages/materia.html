@@ -27,16 +27,16 @@
     <div class="container">
       <div class="flex-container">
         <section class="section flex-item">
-          <h2><i class="fa-solid fa-chalkboard"></i> Plano de Aula</h2>
+          <h2><i class="fa-solid fa-chalkboard"></i> Plano de Ensino</h2>
           <div id="plano-aula-content" class="empty">
-            Nenhum plano de aula disponível.
+            Nenhum plano de ensino disponível.
           </div>
         </section>
 
         <section class="section flex-item">
-          <h2><i class="fa-solid fa-list-check"></i> Chamada</h2>
+          <h2><i class="fa-solid fa-list-check"></i> Notas</h2>
           <div id="chamada-content" class="empty">
-            Nenhuma informação de chamada disponível.
+            Nenhuma informação de notas disponível.
           </div>
         </section>
       </div>
@@ -46,20 +46,6 @@
         <div id="bancas-content" class="empty">
           Nenhuma informação de bancas disponível.
         </div>
-      </section>
-
-      <section class="section">
-        <h2><i class="fa-solid fa-tasks"></i> Atividades</h2>
-        <ul id="atividades-list">
-          <li class="empty">Nenhuma atividade cadastrada.</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2><i class="fa-solid fa-book-open"></i> Aulas</h2>
-        <ul id="aulas-list">
-          <li class="empty">Nenhuma aula disponível.</li>
-        </ul>
       </section>
     </div>
 
@@ -84,7 +70,7 @@
           if (!res.ok) throw new Error("JSON da matéria não encontrado");
           const data = await res.json();
 
-          // Plano de Aula
+          // Plano de Ensino
           const planoContent = document.getElementById("plano-aula-content");
           planoContent.innerHTML = "";
 
@@ -104,10 +90,10 @@
             });
           } else {
             planoContent.classList.add("empty");
-            planoContent.textContent = "Nenhum plano de aula disponível.";
+            planoContent.textContent = "Nenhum plano de ensino disponível.";
           }
 
-          // Chamada
+          // Notas
           const chamadaContent = document.getElementById("chamada-content");
           if (data.chamada) {
             chamadaContent.classList.remove("empty");
@@ -115,71 +101,18 @@
           } else {
             chamadaContent.classList.add("empty");
             chamadaContent.textContent =
-              "Nenhuma informação de chamada disponível.";
+              "Nenhuma informação de notas disponível.";
           }
 
           // Bancas de TCC
           const bancasSection = document.getElementById("bancas-section");
           const bancasContent = document.getElementById("bancas-content");
-          console.log("Bancas data:", data.bancas);
           if (data.bancas) {
             bancasSection.style.display = "block";
             bancasContent.classList.remove("empty");
             bancasContent.innerHTML = data.bancas;
-            console.log("Bancas section should be visible now");
           } else {
             bancasSection.style.display = "none";
-            console.log("Bancas data not found");
-          }
-
-          // Aulas
-          const aulasList = document.getElementById("aulas-list");
-          aulasList.innerHTML = "";
-          if (Array.isArray(data.aula) && data.aula.length > 0) {
-            data.aula.forEach((item) => {
-              const li = document.createElement("li");
-              li.innerHTML = `<a href="${item.conteudo}" target="_blank">${item.titulo}</a>`;
-              aulasList.appendChild(li);
-            });
-          } else {
-            const li = document.createElement("li");
-            li.classList.add("empty");
-            li.textContent = "Nenhuma aula disponível.";
-            aulasList.appendChild(li);
-          }
-
-          // Atividades
-          const atividadesList = document.getElementById("atividades-list");
-          atividadesList.innerHTML = "";
-          if (Array.isArray(data.aula) && data.aula.length > 0) {
-            const atividadesFiltradas = data.aula.filter(
-              (item) =>
-                item.atividades &&
-                item.atividades.trim() !== "" &&
-                item.atividades.toLowerCase() !== "nenhuma"
-            );
-            if (atividadesFiltradas.length > 0) {
-              atividadesFiltradas.forEach((item) => {
-                const card = document.createElement("div");
-                card.classList.add("atividade-card");
-                card.innerHTML = `
-                <h3>${item.atividades}</h3>
-                <div class="data">${item.data || "Sem data"}</div>
-                <p>${item.descricao || ""}</p>
-              `;
-                atividadesList.appendChild(card);
-              });
-            } else {
-              const li = document.createElement("li");
-              li.classList.add("empty");
-              li.textContent = "Nenhuma atividade cadastrada.";
-              atividadesList.appendChild(li);
-            }
-          } else {
-            const li = document.createElement("li");
-            li.classList.add("empty");
-            li.textContent = "Nenhuma atividade cadastrada.";
-            atividadesList.appendChild(li);
           }
         } catch (err) {
           console.error(err);
@@ -196,11 +129,6 @@
 
       ScrollReveal().reveal(".section", { origin: "bottom", interval: 200 });
       ScrollReveal().reveal(".plano-line", { origin: "left", interval: 100 });
-      ScrollReveal().reveal("li", { origin: "left", interval: 150 });
-      ScrollReveal().reveal(".atividade-card", {
-        origin: "bottom",
-        interval: 200,
-      });
     </script>
   </body>
 </html>
