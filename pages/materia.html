@@ -25,6 +25,13 @@
     </header>
 
     <div class="container">
+      <section class="section" id="pdf-aula-section" style="display: none;">
+        <h2><i class="fa-solid fa-file-pdf"></i> PDF da Aula</h2>
+        <div id="pdf-aula-content" class="pdf-container">
+          <p class="empty">Nenhum PDF disponível.</p>
+        </div>
+      </section>
+
       <div class="flex-container">
         <section class="section flex-item">
           <h2><i class="fa-solid fa-chalkboard"></i> Plano de Ensino</h2>
@@ -55,7 +62,6 @@
       </div>
     </footer>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
     <script>
       const params = new URLSearchParams(window.location.search);
       const materiaKeyRaw = params.get("materia") || "geral";
@@ -69,6 +75,47 @@
           const res = await fetch(`../assets/json/${materiaKey}.json`);
           if (!res.ok) throw new Error("JSON da matéria não encontrado");
           const data = await res.json();
+
+          // PDF da Aula
+          const pdfSection = document.getElementById("pdf-aula-section");
+          const pdfContent = document.getElementById("pdf-aula-content");
+          
+          if (data.pdfAula) {
+            pdfSection.style.display = "block";
+            pdfContent.classList.remove("empty");
+            
+            // Verificar se é HTML iframe ou apenas URL
+            if (data.pdfAula.trim().startsWith('<iframe')) {
+              // Se já é um iframe HTML, inserir diretamente
+              pdfContent.innerHTML = `<div class="pdf-wrapper">${data.pdfAula}</div>`;
+            } else {
+              // Se é apenas URL, criar iframe
+              let pdfUrl = data.pdfAula;
+              if (pdfUrl.includes("drive.google.com")) {
+                // Converter link do Google Drive para visualização
+                const fileIdMatch = pdfUrl.match(/\/d\/([a-zA-Z0-9-_]+)/);
+                if (fileIdMatch) {
+                  pdfUrl = `https://drive.google.com/file/d/${fileIdMatch[1]}/preview`;
+                }
+              }
+              
+              pdfContent.innerHTML = `
+                <div class="pdf-wrapper">
+                  <iframe 
+                    src="${pdfUrl}" 
+                    type="application/pdf"
+                    class="pdf-viewer"
+                    frameborder="0">
+                  </iframe>
+                  <a href="${data.pdfAula}" target="_blank" class="pdf-download-btn">
+                    <i class="fa-solid fa-download"></i> Baixar PDF
+                  </a>
+                </div>
+              `;
+            }
+          } else {
+            pdfSection.style.display = "none";
+          }
 
           // Plano de Ensino
           const planoContent = document.getElementById("plano-aula-content");
@@ -120,15 +167,6 @@
       }
 
       loadMateria();
-
-      ScrollReveal({
-        distance: "80px",
-        duration: 2000,
-        delay: 200,
-      });
-
-      ScrollReveal().reveal(".section", { origin: "bottom", interval: 200 });
-      ScrollReveal().reveal(".plano-line", { origin: "left", interval: 100 });
     </script>
   </body>
 </html>

@@ -23,6 +23,8 @@ body {
   background: var(--bg-color);
   color: var(--text-color);
   min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 a {
@@ -50,6 +52,7 @@ a:focus {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -74,10 +77,15 @@ a:focus {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  white-space: nowrap;
 }
 
 .nav-back:hover {
   color: var(--main-color);
+}
+
+.nav-back i {
+  font-size: 1.8rem;
 }
 
 .hero-section {
@@ -107,6 +115,8 @@ a:focus {
   max-width: 1200px;
   margin: 3rem auto;
   padding: 2rem 9%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .professor-info {
@@ -155,10 +165,17 @@ a:focus {
   color: var(--main-color);
   text-decoration: none;
   transition: 0.3s;
+  word-break: break-word;
+  display: inline-block;
 }
 
 .info-item a:hover {
   text-decoration: underline;
+}
+
+.info-item strong {
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .materias {
@@ -197,6 +214,8 @@ a:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .materia-item:hover {
@@ -231,12 +250,19 @@ a:focus {
   color: inherit !important;
   display: block;
   height: 100%;
+  width: 100%;
   outline: none !important;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+.materias-list li a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .materia-item a:link,
@@ -301,30 +327,133 @@ a:focus {
 
 @media (max-width: 991px) {
   .header {
-    padding: 2rem 3%;
+    padding: 1.8rem 4%;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-size: 3rem;
+  }
+
+  .nav-back {
+    font-size: 1.6rem;
   }
 
   .container,
   .hero-section {
-    padding: 2rem 3%;
+    padding: 2rem 4%;
+  }
+
+  .hero-section {
+    margin-top: 9rem;
   }
 
   .footer {
-    padding: 2rem 3%;
+    padding: 2rem 4%;
   }
 }
 
 @media (max-width: 768px) {
+  .header {
+    padding: 1.5rem 5%;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+
+  .nav-back {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  
+  .nav-back span {
+    display: none;
+  }
+  
+  .nav-back i {
+    font-size: 2.2rem;
+  }
+
+  .hero-section {
+    margin-top: 8rem;
+    padding: 2rem 5% 1rem;
+  }
+
   .hero-section h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+
+  .hero-section p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .container {
+    padding: 1rem 5%;
+    margin: 2rem auto;
+  }
+
+  .professor-info {
+    padding: 2rem 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .professor-info h2 {
+    font-size: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .materias h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
   }
 
   .materias-list {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+
+  .materia-item {
+    padding: 2rem 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .materia-item h3 {
+    font-size: 1.8rem;
+    flex-wrap: wrap;
+    text-align: center;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .materia-item i {
+    font-size: 2rem;
+  }
+
+  .materia-item p {
+    font-size: 1.3rem;
   }
 
   .info-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .info-item {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    padding: 0.8rem 0;
   }
 }
 
@@ -333,23 +462,177 @@ a:focus {
     font-size: 50%;
   }
 
+  .header {
+    padding: 1.2rem 4%;
+  }
+
+  .logo {
+    font-size: 2.2rem;
+  }
+
+  .nav-back {
+    font-size: 1.4rem;
+  }
+
+  .nav-back i {
+    font-size: 1.6rem;
+  }
+
+  .hero-section {
+    margin-top: 7rem;
+    padding: 1.5rem 4% 1rem;
+  }
+
   .hero-section h1 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-section p {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .container {
+    padding: 1rem 4%;
+    margin: 1.5rem auto;
   }
 
   .professor-info {
-    padding: 2rem;
+    padding: 1.5rem 1.2rem;
+    border-radius: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .professor-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .professor-info h2 i {
+    font-size: 1.8rem;
+  }
+
+  .info-grid {
+    gap: 1.2rem;
+  }
+
+  .info-item {
+    font-size: 1.3rem;
+    padding: 0.8rem 0;
+    line-height: 1.7;
+  }
+
+  .materias {
+    margin-top: 1.5rem;
+  }
+
+  .materias h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .materias-list {
+    gap: 1.2rem;
+  }
+
+
+  .materia-item {
+    padding: 1.5rem 1.2rem;
+    border-radius: 1.2rem;
+  }
+
+  .materia-item:hover {
+    transform: translateY(-0.3rem);
+  }
+
+  .materia-item h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .materia-item i {
+    font-size: 1.8rem;
+  }
+
+  .materia-item p {
+    font-size: 1.2rem;
+    margin: 0.6rem 0;
+  }
+
+  .footer {
+    padding: 1.5rem 4%;
   }
 }
 
 @media (max-width: 365px) {
+  .header {
+    padding: 1rem 3%;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .nav-back {
+    font-size: 1.3rem;
+  }
+  
+  .nav-back span {
+    display: none;
+  }
+  
+  .nav-back i {
+    font-size: 1.8rem;
+  }
+
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-section p {
+    font-size: 1.3rem;
+  }
+
+  .container {
+    padding: 1rem 3%;
+  }
+
+  .professor-info {
+    padding: 1.2rem 1rem;
+  }
+
+  .professor-info h2 {
+    font-size: 1.6rem;
+  }
+
+  .materias h2 {
+    font-size: 1.8rem;
+  }
+
+  .materia-item {
+    padding: 1.2rem 1rem;
+  }
+
+  .materia-item h3 {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
   .footer {
     flex-direction: column-reverse;
+    padding: 1.2rem 3%;
   }
 
   .footer p {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
   }
 }
 
